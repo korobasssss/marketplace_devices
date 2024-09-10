@@ -1,0 +1,14 @@
+@import '../../../styles/variables/index';
+@import '../../../styles/mixins/index';
+
+.Counter {
+  min-width: 30px;
+  height: 30px;
+  padding: 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $ELLIPSE_BGC;
+  border-radius: 75px;
+}
