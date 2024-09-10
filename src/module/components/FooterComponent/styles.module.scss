@@ -1,0 +1,47 @@
+@import '../../../styles/variables/index';
+@import '../../../styles/mixins/index.css';
+
+.footer_section {
+  height: 149px;
+
+  display: flex;
+  align-items: start;
+}
+
+.Footer {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: max-content auto max-content;
+  justify-content: space-between;
+
+  .navigation {
+    height: 100%;
+
+    display: flex;
+
+    .links_section {
+      height: 100%;
+
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: repeat(3, 1fr);
+      column-gap: 150px;
+      align-items: stretch;
+    }
+
+    .lang_section {
+      width: max-content;
+      display: flex;
+      gap: 15px;
+    }
+  }
+
+  .resources {
+    display: flex;
+    align-self: start;
+    align-items: center;
+    gap: 15px;
+  }
+}

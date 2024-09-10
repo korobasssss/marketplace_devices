@@ -1,0 +1,30 @@
+@import '../../../styles/variables/index';
+@import '../../../styles/mixins/index.css';
+
+.HeaderWrapper {
+  width: 100%;
+  height: 60px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .iconSection {
+    width: max-content;
+
+    display: flex;
+    gap: 30px;
+    margin-right: 15px;
+
+    .Link {
+      width: max-content;
+      display: flex;
+
+      .Link_Counter {
+        position: relative;
+        top: -9px;
+        right: 7px;
+      }
+    }
+  }
+}
