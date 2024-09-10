@@ -1,0 +1,16 @@
+@import 'src/styles/variables/index';
+@import '../../../styles/mixins/index';
+
+.WhiteSection {
+  background-color: $BGC_WHITE;
+  box-shadow: $SHADOW_MAIN;
+  padding: 30px;
+
+  &_allRound {
+    border-radius: $ROUNDING_MAIN;
+  }
+
+  &_upRound {
+    border-radius: $ROUNDING_FOOTER;
+  }
+}

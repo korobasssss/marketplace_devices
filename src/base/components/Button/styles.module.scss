@@ -1,0 +1,38 @@
+@import 'src/styles/variables/index';
+@import '../../../styles/mixins/index';
+
+.Button {
+  border: none;
+  cursor: pointer;
+
+  &_base {
+    height: min-content;
+    width: max-content;
+    color: $BUTTON_TEXT_BLACK;
+    background-color: transparent;
+    @include font-s-bold;
+  }
+
+  &_submit {
+    height: 65px;
+    width: 100%;
+    border-radius: $ROUNDING_MAIN;
+    background-color: $BUTTON_BGC;
+    color: $BUTTON_TEXT_WHITE;
+    @include font-s-bold;
+  }
+
+  &_blackOrOrange {
+    transition: $TRANSITION;
+    height: min-content;
+    width: max-content;
+    color: $BUTTON_TEXT_BLACK;
+    background-color: transparent;
+    @include font-xs-almost-bold;
+
+    &_active {
+      transition: $TRANSITION;
+      color: $BUTTON_TEXT_ORANGE;
+    }
+  }
+}

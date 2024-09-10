@@ -1,0 +1,14 @@
+@import '../../../styles/variables/index';
+@import '../../../styles/mixins/index';
+
+.HeaderText {
+  &_pageTitle {
+    @include font-l-bold;
+    color: $TEXT_HEADER
+  }
+
+  &_sectionTitle {
+    @include font-m-bold;
+    color: $TEXT_HEADER_SECTION;
+  }
+}
