@@ -1,6 +1,6 @@
 import {FC} from "react";
 import styles from './styles.module.scss'
-import {HeaderText, WhiteWrapper, LinkIcon, Button, LinkTo} from "../../../base/components";
+import {HeaderText, WhiteWrapper, LinkTo, Button} from "../../../base/components";
 import {ReactComponent as TelegramIcon} from "../../../assets/icons/telegram.svg";
 import {ReactComponent as WhatsappIcon} from "../../../assets/icons/whatsapp.svg";
 import {ReactComponent as VkIcon} from "../../../assets/icons/vk.svg";
@@ -23,22 +23,26 @@ export const FooterComponent : FC = () => {
                         className={styles.links_section}
                     >
                         <LinkTo
-                            href={'/fav'}
+                            href={'/favourites'}
+                            isNewPage
                         >
                             Избранное
                         </LinkTo>
                         <LinkTo
-                            href={'/fav'}
+                            href={'/favourites'}
+                            isNewPage
                         >
                             Корзина
                         </LinkTo>
                         <LinkTo
-                            href={'/fav'}
+                            isNewPage
+                            href={'/favourites'}
                         >
                             Контакты
                         </LinkTo>
                         <LinkTo
-                            href={'/fav'}
+                            isNewPage
+                            href={'/favourites'}
                         >
                             Условия сервиса
                         </LinkTo>
@@ -65,15 +69,24 @@ export const FooterComponent : FC = () => {
                 <nav
                     className={styles.resources}
                 >
-                    <LinkIcon href={'https://vk.com/neoflex_ru'}>
+                    <LinkTo
+                        href={'https://vk.com/neoflex_ru'}
+                        isNewPage
+                    >
                         <VkIcon/>
-                    </LinkIcon>
-                    <LinkIcon href={"https://t.me/neoflexcareers"}>
+                    </LinkTo>
+                    <LinkTo
+                        href={"https://t.me/neoflexcareers"}
+                        isNewPage
+                    >
                         <TelegramIcon/>
-                    </LinkIcon>
-                    <LinkIcon href={'https://wa.me/89601308479'}>
+                    </LinkTo>
+                    <LinkTo
+                        href={'https://wa.me/89601308479'}
+                        isNewPage
+                    >
                         <WhatsappIcon/>
-                    </LinkIcon>
+                    </LinkTo>
                 </nav>
             </footer>
         </WhiteWrapper>

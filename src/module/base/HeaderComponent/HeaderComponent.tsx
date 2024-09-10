@@ -1,6 +1,6 @@
 import styles from './styles.module.scss'
 import {FC} from "react";
-import {CounterNumber, HeaderText, LinkIcon} from "../../../base/components";
+import {CounterNumber, HeaderText, LinkTo} from "../../../base/components";
 import {ReactComponent as FavIcon} from '../../../assets/icons/favourites.svg';
 import {ReactComponent as CartIcon} from '../../../assets/icons/cart.svg';
 
@@ -23,26 +23,27 @@ export const HeaderComponent: FC<IHeaderWrapper> = (
             <div
                 className={styles.iconSection}>
                 {isFavoritesIcon && (
-                    <LinkIcon
+                    <LinkTo
                         className={styles.Link}
-                        href={'/fav'}
-                    >
+                        href={'/favourites'}
+                        isNewPage={false}>
                         <FavIcon/>
                         <CounterNumber
                             className={styles.Link_Counter}
                             counter={2}/>
-                    </LinkIcon>
+                    </LinkTo>
                 )}
                 {isCartIcon && (
-                    <LinkIcon
+                    <LinkTo
                         className={styles.Link}
-                        href={'cart'}
+                        href={'/cart'}
+                        isNewPage={false}
                     >
                         <CartIcon/>
                         <CounterNumber
                             className={styles.Link_Counter}
                             counter={2}/>
-                    </LinkIcon>
+                    </LinkTo>
                 )}
             </div>
         </section>
