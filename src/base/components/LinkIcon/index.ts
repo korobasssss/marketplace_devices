@@ -1,1 +1,1 @@
-export * from './LinkIcon'
+export * from './LinkTo.tsx'
