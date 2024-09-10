@@ -1,0 +1,8 @@
+@import 'src/styles/variables/index';
+@import '../../../styles/mixins/index';
+
+.main_section {
+  height: 100%;
+  display: grid;
+  grid-template-rows: min-content auto min-content;
+}
