@@ -1,6 +1,9 @@
 @import '../fonts/fonts';
 
 $MONTSERRAT: 'Montserrat';
+$MONTSERRAT_LIGHT: 'Montserrat_Light';
+$MONTSERRAT_ALMOST_BOLD: 'Montserrat_Almost_Bold';
+$MONTSERRAT_BOLD: 'Montserrat_Bold';
 
 $FONT_L: 25px;
 $FONT_M: 20px;
@@ -10,7 +13,7 @@ $FONT_XS: 15px;
 $LINE_HEIGHT: 20.72px;
 
 @mixin font-xs-light($font-weight: 300, $font-style: normal) {
-  font-family: $MONTSERRAT, sans-serif;
+  font-family: $MONTSERRAT_LIGHT, sans-serif;
   font-size: $FONT_XS;
   line-height: $LINE_HEIGHT;
   font-weight: $font-weight;
@@ -18,7 +21,7 @@ $LINE_HEIGHT: 20.72px;
 }
 
 @mixin font-s-light($font-weight: 300, $font-style: normal) {
-  font-family: $MONTSERRAT, sans-serif;
+  font-family: $MONTSERRAT_LIGHT, sans-serif;
   font-size: $FONT_S;
   line-height: $LINE_HEIGHT;
   font-weight: $font-weight;
@@ -26,7 +29,7 @@ $LINE_HEIGHT: 20.72px;
 }
 
 @mixin font-m-light($font-weight: 300, $font-style: normal) {
-  font-family: $MONTSERRAT, sans-serif;
+  font-family: $MONTSERRAT_LIGHT, sans-serif;
   font-size: $FONT_M;
   line-height: $LINE_HEIGHT;
   font-weight: $font-weight;
@@ -34,7 +37,7 @@ $LINE_HEIGHT: 20.72px;
 }
 
 @mixin font-l-light($font-weight: 300, $font-style: normal) {
-  font-family: $MONTSERRAT, sans-serif;
+  font-family: $MONTSERRAT_LIGHT, sans-serif;
   font-size: $FONT_L;
   line-height: $LINE_HEIGHT;
   font-weight: $font-weight;
@@ -73,32 +76,64 @@ $LINE_HEIGHT: 20.72px;
   font-style: $font-style;
 }
 
-@mixin font-xs-bold($font-weight: 700, $font-style: normal) {
-  font-family: $MONTSERRAT, sans-serif;
+@mixin font-xs-almost-bold($font-weight: 500, $font-style: normal) {
+  font-family: $MONTSERRAT_ALMOST_BOLD, sans-serif;
   font-size: $FONT_XS;
   line-height: $LINE_HEIGHT;
   font-weight: $font-weight;
   font-style: $font-style;
 }
 
-@mixin font-s-bold($font-weight: 700, $font-style: normal) {
-  font-family: $MONTSERRAT, sans-serif;
+@mixin font-s-almost-bold($font-weight: 500, $font-style: normal) {
+  font-family: $MONTSERRAT_ALMOST_BOLD, sans-serif;
   font-size: $FONT_S;
   line-height: $LINE_HEIGHT;
   font-weight: $font-weight;
   font-style: $font-style;
 }
 
-@mixin font-m-bold($font-weight: 700, $font-style: normal) {
-  font-family: $MONTSERRAT, sans-serif;
+@mixin font-m-almost-bold($font-weight: 500, $font-style: normal) {
+  font-family: $MONTSERRAT_ALMOST_BOLD, sans-serif;
   font-size: $FONT_M;
   line-height: $LINE_HEIGHT;
   font-weight: $font-weight;
   font-style: $font-style;
 }
 
-@mixin font-l-bold($font-weight: 700, $font-style: normal) {
-  font-family: $MONTSERRAT, sans-serif;
+@mixin font-l-almost-bold($font-weight: 500, $font-style: normal) {
+  font-family: $MONTSERRAT_ALMOST_BOLD, sans-serif;
+  font-size: $FONT_L;
+  line-height: $LINE_HEIGHT;
+  font-weight: $font-weight;
+  font-style: $font-style;
+}
+
+@mixin font-xs-bold($font-weight: 600, $font-style: normal) {
+  font-family: $MONTSERRAT_BOLD, sans-serif;
+  font-size: $FONT_XS;
+  line-height: $LINE_HEIGHT;
+  font-weight: $font-weight;
+  font-style: $font-style;
+}
+
+@mixin font-s-bold($font-weight: 600, $font-style: normal) {
+  font-family: $MONTSERRAT_BOLD, sans-serif;
+  font-size: $FONT_S;
+  line-height: $LINE_HEIGHT;
+  font-weight: $font-weight;
+  font-style: $font-style;
+}
+
+@mixin font-m-bold($font-weight: 600, $font-style: normal) {
+  font-family: $MONTSERRAT_BOLD, sans-serif;
+  font-size: $FONT_M;
+  line-height: $LINE_HEIGHT;
+  font-weight: $font-weight;
+  font-style: $font-style;
+}
+
+@mixin font-l-bold($font-weight: 600, $font-style: normal) {
+  font-family: $MONTSERRAT_BOLD, sans-serif;
   font-size: $FONT_L;
   line-height: $LINE_HEIGHT;
   font-weight: $font-weight;
