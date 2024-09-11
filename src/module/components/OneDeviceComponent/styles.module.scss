@@ -1,0 +1,99 @@
+@import 'src/styles/variables/index';
+@import '../../../styles/mixins/index';
+
+
+.one_device_wrapper {
+  position: relative;
+  padding: 25px;
+
+  width: 350px;
+  height: 407px;
+
+  display: grid;
+
+  .button_icon {
+    position: absolute;
+    visibility: hidden;
+
+    display: grid;
+    justify-self: end;
+
+    .icon {
+      display: block;
+      transition: $TRANSITION;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .one_device_main {
+    display: grid;
+    grid-template-rows: min-content auto;
+    row-gap: 50px;
+
+    .device_image {
+      display: grid;
+      justify-self: center;
+
+      width: 219px;
+      height: 237px;
+
+      object-fit: cover;
+    }
+
+    .data_wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .name_range_wrapper {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+
+        .device_name {
+          @include font-s-bold;
+        }
+
+        .range_wrapper {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          .range {
+            @include font-s-bold;
+            color: $TEXT_HEADER_SECTION;
+          }
+        }
+
+        .price_wrapper {
+          display: grid;
+          justify-items: center;
+
+          .actual_price {
+            @include font-s-bold;
+            color: $TEXT_PRICE;
+          }
+
+          .base_price {
+            text-decoration: line-through;
+            @include font-xxs-bold;
+            color: $TEXT_PRICE_DISCOUNT;
+          }
+        }
+      }
+    }
+  }
+
+  &:hover {
+    .button_icon {
+      visibility: visible;
+    }
+
+    .icon {
+      display: block;
+    }
+  }
+}

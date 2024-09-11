@@ -1,5 +1,11 @@
-import {MainComponent} from "../../module/components/MainComponent";
+import {MainComponent} from "../../module/components";
+import {MainLayout} from "../../base/components";
 
 export const MainPage = () => {
-    return <MainComponent/>
+    return (
+        <MainLayout>
+            <MainComponent/>
+        </MainLayout>
+
+    )
 }

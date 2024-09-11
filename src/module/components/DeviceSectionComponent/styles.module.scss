@@ -1,0 +1,16 @@
+@import 'src/styles/variables/index';
+@import '../../../styles/mixins/index';
+
+.device_main {
+  margin-top: 30px;
+
+  display: grid;
+  row-gap: 25px;
+
+  .ul_devices {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
