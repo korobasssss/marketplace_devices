@@ -97,3 +97,15 @@
     }
   }
 }
+
+@media screen and (max-width: $SCREEN_WIDTH) {
+  .one_device_wrapper {
+    width: 48%;
+  }
+}
+
+@media screen and (max-width: $SCREEN_M) {
+  .one_device_wrapper {
+    width: 100%;
+  }
+}
