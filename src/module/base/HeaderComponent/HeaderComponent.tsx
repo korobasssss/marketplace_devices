@@ -1,10 +1,11 @@
 import styles from './styles.module.scss'
-import {FC} from "react";
-import {CounterNumber, HeaderText, LinkTo} from "../../../base/components";
+import {FC, useCallback} from "react";
+import {Button, CounterNumber, HeaderText, LinkTo} from "../../../base/components";
 import {ReactComponent as FavIcon} from '../../../assets/icons/favourites.svg';
 import {ReactComponent as CartIcon} from '../../../assets/icons/cart.svg';
 import {IWithClassName} from "../../../base/interfaces";
 import cx from "classnames";
+import {useNavigate} from "react-router-dom";
 
 interface IHeaderWrapper
     extends IWithClassName {
@@ -19,6 +20,12 @@ export const HeaderComponent: FC<IHeaderWrapper> = (
         isCartIcon
     }
 ) => {
+    const navigation = useNavigate()
+
+    const handlerTitleClick = useCallback(() => {
+        navigation('/')
+    }, [navigation]);
+    
     return (
         <section
             className={cx(
@@ -26,7 +33,10 @@ export const HeaderComponent: FC<IHeaderWrapper> = (
                 styles.HeaderWrapper
             )}
         >
-            <HeaderText title={'QPICK'} theme={'pageTitle'}/>
+            <Button
+                onClick={handlerTitleClick}>
+                <HeaderText title={'QPICK'} theme={'pageTitle'}/>
+            </Button>
             <div
                 className={styles.iconSection}>
                 {isFavoritesIcon && (
