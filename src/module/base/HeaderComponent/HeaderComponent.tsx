@@ -3,21 +3,28 @@ import {FC} from "react";
 import {CounterNumber, HeaderText, LinkTo} from "../../../base/components";
 import {ReactComponent as FavIcon} from '../../../assets/icons/favourites.svg';
 import {ReactComponent as CartIcon} from '../../../assets/icons/cart.svg';
+import {IWithClassName} from "../../../base/interfaces";
+import cx from "classnames";
 
-interface IHeaderWrapper {
+interface IHeaderWrapper
+    extends IWithClassName {
     isFavoritesIcon: boolean
     isCartIcon: boolean
 }
 
 export const HeaderComponent: FC<IHeaderWrapper> = (
     {
+        className,
         isFavoritesIcon,
         isCartIcon
     }
 ) => {
     return (
         <section
-            className={styles.HeaderWrapper}
+            className={cx(
+                className,
+                styles.HeaderWrapper
+            )}
         >
             <HeaderText title={'QPICK'} theme={'pageTitle'}/>
             <div

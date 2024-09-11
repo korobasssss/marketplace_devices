@@ -24,7 +24,7 @@ export const LinkTo: FC<ILink> = (
             to={href}
             className={cx(
                 className,
-                styles.LinkIcon
+                styles.Link
             )}
             target={isNewPage ? '_blank' : undefined}
         >

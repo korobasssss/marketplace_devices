@@ -1,4 +1,7 @@
-.LinkIcon {
+@import '../../../styles/variables/index';
+@import '../../../styles/mixins/index';
+
+.Link {
   width: 100%;
   position: relative;
   cursor: pointer;
@@ -6,6 +9,7 @@
   margin: 0;
 
   display: grid;
+  @include font-s-regular;
 
   &svg {
     width: 100%;

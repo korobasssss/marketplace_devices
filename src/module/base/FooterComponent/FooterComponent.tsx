@@ -15,7 +15,10 @@ export const FooterComponent : FC = () => {
             <footer
                 className={styles.Footer}
             >
-                <HeaderText title={'QPICK'} theme={'pageTitle'}/>
+                <HeaderText
+                    title={'QPICK'}
+                    theme={'pageTitle'}
+                />
                 <nav
                     className={styles.navigation}
                 >
@@ -62,9 +65,7 @@ export const FooterComponent : FC = () => {
                                 Eng
                             </Button>
                         </div>
-
                     </div>
-
                 </nav>
                 <nav
                     className={styles.resources}
@@ -90,5 +91,6 @@ export const FooterComponent : FC = () => {
                 </nav>
             </footer>
         </WhiteWrapper>
+
     )
 }
