@@ -2,6 +2,7 @@ import {IWithClassName} from "../../interfaces";
 import {FC, ReactElement, ReactNode} from "react";
 import styles from './styles.module.scss'
 import {FooterComponent, HeaderComponent} from "../../../module/base";
+import {ScrollWrapper} from "../";
 
 interface IMainLayout
     extends IWithClassName {
@@ -14,25 +15,26 @@ export const MainLayout: FC<IMainLayout> = (
     }
 ) => {
     return (
-        <div
-            className={styles.main_section}
-        >
+        <ScrollWrapper>
             <div
-                className={styles.main}
+                className={styles.main_section}
             >
-                <HeaderComponent
-                    isCartIcon
-                    isFavoritesIcon
-                    className={styles.container}
-                />
                 <div
-                    className={styles.container}
+                    className={styles.main}
                 >
-                    {children}
+                    <HeaderComponent
+                        isCartIcon
+                        isFavoritesIcon
+                        className={styles.container}
+                    />
+                    <div
+                        className={styles.container}
+                    >
+                        {children}
+                    </div>
+                    <FooterComponent/>
                 </div>
-                <FooterComponent/>
             </div>
-        </div>
-
+        </ScrollWrapper>
     )
 }
