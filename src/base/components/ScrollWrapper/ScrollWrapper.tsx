@@ -1,6 +1,7 @@
 import {IWithClassName} from "../../interfaces";
 import {FC, ReactElement, ReactNode} from "react";
 import styles from './styles.module.scss'
+import cx from "classnames";
 
 interface IScrollWrapper
     extends IWithClassName {
@@ -9,13 +10,17 @@ interface IScrollWrapper
 
 export const ScrollWrapper: FC<IScrollWrapper> = (
     {
+        className,
         children
     }
 ) => {
 
     return (
         <div
-            className={styles.scroll_wrapper}
+            className={cx(
+                className,
+                styles.scroll_wrapper
+            )}
         >
             {children}
         </div>

@@ -16,7 +16,7 @@
   &_submit {
     height: 65px;
     width: 100%;
-    border-radius: $ROUNDING_MAIN;
+    border-radius: $ROUNDING_BUTTON;
     background-color: $BUTTON_BGC;
     color: $BUTTON_TEXT_WHITE;
     @include font-s-bold;
