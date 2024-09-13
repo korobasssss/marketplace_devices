@@ -1,3 +1,10 @@
+import {MainLayout} from "../../base/components";
+import {CartComponent} from "../../module/components";
+
 export const CartPage = () => {
-    return <div>CartPage</div>
+    return (
+        <MainLayout>
+            <CartComponent/>
+        </MainLayout>
+    )
 }

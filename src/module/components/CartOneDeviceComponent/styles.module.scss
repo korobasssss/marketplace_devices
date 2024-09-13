@@ -1,0 +1,75 @@
+@import 'src/styles/variables/index';
+@import '../../../styles/mixins/index';
+
+.one_device_wrapper {
+  padding: 20px 25px 15px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px
+}
+
+.main_section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.data_section {
+  display: flex;
+  gap: 20px;
+
+  .img {
+    height: 136px;
+    width: 146px;
+    object-fit: cover;
+  }
+
+  .name_section {
+    position: relative;
+    display: grid;
+    align-self: center;
+    gap: 10px;
+
+    .name {
+      position: relative;
+      width: 100%;
+      top: 20px;
+      @include font-s-almost-bold();
+    }
+
+    .price {
+      position: relative;
+      width: 100%;
+      top: 20px;
+      @include font-xs-bold;
+      color: $TEXT_PRICE_CART;
+    }
+  }
+}
+
+.delete_section {
+  display: flex;
+  align-items: start;
+}
+
+.footer_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .count_section {
+    margin-left: 16px;
+    display: flex;
+    gap: 23px;
+    align-items: center;
+
+    .count {
+      @include font-s-bold;
+    }
+  }
+
+  .total_price {
+    @include font-xs-bold;
+    color: $TEXT_TITLE;
+  }
+}
+
