@@ -58,11 +58,15 @@ export const OneDeviceComponent: FC<IOneDeviceComponent> = (
                             className={styles.icon}
                         /> }
                 </ButtonIcon>
-                <img
-                    src={deviceImage}
-                    alt={'device image'}
-                    className={styles.device_image}
-                />
+                <div
+                    className={styles.img_section}>
+                    <img
+                        src={deviceImage}
+                        alt={'device image'}
+                        className={styles.device_image}
+                    />
+                </div>
+
                 <div
                     className={styles.data_wrapper}
                 >

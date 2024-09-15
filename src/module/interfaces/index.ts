@@ -1,1 +1,1 @@
-export * from './IDataOneDeviceView'
+export * from './IData.ts'

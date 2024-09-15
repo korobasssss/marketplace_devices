@@ -33,14 +33,21 @@
     grid-template-rows: min-content auto;
     row-gap: 50px;
 
-    .device_image {
-      display: grid;
-      justify-self: center;
-
-      width: 219px;
+    .img_section {
       height: 237px;
 
-      object-fit: cover;
+      display: grid;
+      justify-items: center;
+      align-items: center;
+
+      .device_image {
+        display: grid;
+
+        max-width: 219px;
+        max-height: 100%;
+
+        object-fit: cover;
+      }
     }
 
     .data_wrapper {

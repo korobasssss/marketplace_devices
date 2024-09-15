@@ -1,3 +1,8 @@
+export interface IDataOneSectionView {
+    title: string,
+    devices: IDataOneDeviceView[]
+}
+
 export interface IDataOneDeviceView {
     id: number,
     deviceImage: string,

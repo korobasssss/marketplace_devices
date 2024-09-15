@@ -1,11 +1,5 @@
-import {MainComponent} from "../../module/components";
-import {MainLayout} from "../../base/components";
+import {MainContainer} from "../../module/containers/MainContainer";
 
 export const MainPage = () => {
-    return (
-        <MainLayout>
-            <MainComponent/>
-        </MainLayout>
-
-    )
+    return <MainContainer/>
 }

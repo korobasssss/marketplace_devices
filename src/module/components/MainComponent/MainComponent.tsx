@@ -1,14 +1,28 @@
 import {DeviceSectionComponent} from "../";
+import {IDataOneSectionView} from "../../interfaces";
+import {FC} from "react";
+import {observer} from "mobx-react";
 
-export const MainComponent = () => {
+interface IMainComponent {
+    data: IDataOneSectionView[]
+}
+
+export const MainComponent: FC<IMainComponent> =observer((
+    {
+        data
+    }
+) => {
     return (
         <ul>
-            <DeviceSectionComponent
-                title={'Наушники'}
-            />
-            <DeviceSectionComponent
-                title={'Беспроводные наушники'}
-            />
+            {data.map(section => {
+                return (
+                    <DeviceSectionComponent
+                        title={section.title}
+                        data={section.devices}
+                        key={section.title}
+                    />
+                )
+            })}
         </ul>
     )
-}
+})
