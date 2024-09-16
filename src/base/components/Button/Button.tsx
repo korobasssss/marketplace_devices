@@ -29,6 +29,7 @@ export const Button: FC<IButton> = (
                 styles.Button,
                 styles[`Button_${theme}`],
                 {
+                    [styles[`Button_disabled`]]: disabled,
                     [styles[`Button_${theme}_active`]]: active
                 }
             )}

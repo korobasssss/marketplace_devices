@@ -2,9 +2,15 @@
 @import '../../../styles/mixins/index';
 
 .HeaderText {
-  &_pageTitle {
+  &_mainTitle {
     @include font-l-bold;
     color: $TEXT_HEADER
+  }
+
+  &_pageTitle {
+    margin-top: 30px;
+    @include font-m-bold;
+    color: $TEXT_HEADER;
   }
 
   &_sectionTitle {

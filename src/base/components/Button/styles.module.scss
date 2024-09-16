@@ -35,4 +35,8 @@
       color: $BUTTON_TEXT_ORANGE;
     }
   }
+
+  &_disabled {
+    cursor: not-allowed;
+  }
 }

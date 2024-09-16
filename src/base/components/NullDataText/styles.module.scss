@@ -1,0 +1,10 @@
+@import 'src/styles/variables/index';
+@import '../../../styles/mixins/index';
+
+.Text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include font-s-bold;
+}
