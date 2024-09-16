@@ -1,11 +1,11 @@
 import {action, makeObservable, observable, override} from "mobx";
 import {BaseApiStoreClass} from "../../base/store";
-import {IDataOneDeviceView, IDataOneSectionView} from "../interfaces";
+import {IDataOneDeviceCartView, IDataOneDeviceView, IDataOneSectionView} from "../interfaces";
 
 
 class DeviceStore extends BaseApiStoreClass<IDataOneSectionView[]>{
     public favouritesData: IDataOneDeviceView[] | null = null;
-    public cartData: IDataOneDeviceView[] | null = null;
+    public cartData: IDataOneDeviceCartView[] | null = null;
 
     public constructor() {
         super()
@@ -27,7 +27,7 @@ class DeviceStore extends BaseApiStoreClass<IDataOneSectionView[]>{
         this.favouritesData = item
     }
 
-    public setCartData = (item: IDataOneDeviceView[] | null): void => {
+    public setCartData = (item: IDataOneDeviceCartView[] | null): void => {
         this.cartData = item
     }
 }
