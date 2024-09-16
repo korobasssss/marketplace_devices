@@ -8,9 +8,9 @@
   row-gap: 25px;
 
   .ul_devices {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 30px;
+    column-gap: 30px;
   }
 }

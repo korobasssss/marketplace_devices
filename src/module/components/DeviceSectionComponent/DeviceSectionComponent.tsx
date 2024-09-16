@@ -4,6 +4,7 @@ import {IWithClassName} from "../../../base/interfaces";
 import {OneDeviceComponent} from "../";
 import styles from './styles.module.scss'
 import {IDataOneDeviceView} from "../../interfaces";
+import {observer} from "mobx-react";
 
 interface IDeviceSectionComponent
     extends IWithClassName {
@@ -11,7 +12,7 @@ interface IDeviceSectionComponent
     data: IDataOneDeviceView[]
 }
 
-export const DeviceSectionComponent: FC<IDeviceSectionComponent> = (
+export const DeviceSectionComponent: FC<IDeviceSectionComponent> = observer((
     {
         title,
         data
@@ -47,4 +48,4 @@ export const DeviceSectionComponent: FC<IDeviceSectionComponent> = (
             </ul>
         </section>
     )
-}
+})
