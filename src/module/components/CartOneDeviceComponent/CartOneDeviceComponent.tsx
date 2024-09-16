@@ -41,11 +41,14 @@ export const CartOneDeviceComponent: FC<ICartOneDeviceComponent> = (
                 <div
                     className={styles.data_section}
                 >
-                    <img
-                        src={deviceImage}
-                        alt={'device image'}
-                        className={styles.img}
-                    />
+                    <div
+                        className={styles.img_section}>
+                        <img
+                            src={deviceImage}
+                            alt={'device image'}
+                            className={styles.img}
+                        />
+                    </div>
                     <div
                         className={styles.name_section}
                     >
