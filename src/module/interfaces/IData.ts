@@ -11,3 +11,12 @@ export interface IDataOneDeviceView {
     price: number,
     salePrice: number | null
 }
+
+export interface IDataOneDeviceCartView {
+    id: number,
+    deviceImage: string,
+    name: string,
+    range: number,
+    price: number,
+    count: number
+}

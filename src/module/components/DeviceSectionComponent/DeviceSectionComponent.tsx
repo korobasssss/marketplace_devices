@@ -7,7 +7,7 @@ import {IDataOneDeviceView} from "../../interfaces";
 
 interface IDeviceSectionComponent
     extends IWithClassName {
-    title: string
+    title?: string
     data: IDataOneDeviceView[]
 }
 
@@ -21,10 +21,12 @@ export const DeviceSectionComponent: FC<IDeviceSectionComponent> = (
         <section
             className={styles.device_main}
         >
-            <HeaderText
-                title={title}
-                theme={'sectionTitle'}
-            />
+            {title && (
+                <HeaderText
+                    title={title}
+                    theme={'sectionTitle'}
+                />
+            )}
             <ul
                 className={styles.ul_devices}
             >

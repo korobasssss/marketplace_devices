@@ -2,16 +2,18 @@ import {IWithClassName} from "../../interfaces";
 import {FC, ReactElement, ReactNode} from "react";
 import styles from './styles.module.scss'
 import {FooterComponent, HeaderComponent} from "../../../module/base";
-import {ScrollWrapper} from "../";
+import {HeaderText, ScrollWrapper} from "../";
 
 interface IMainLayout
     extends IWithClassName {
     children: ReactNode | ReactElement;
+    titleText?: string | null
 }
 
 export const MainLayout: FC<IMainLayout> = (
     {
-        children
+        children,
+        titleText
     }
 ) => {
     return (
@@ -30,6 +32,13 @@ export const MainLayout: FC<IMainLayout> = (
                     <div
                         className={styles.container}
                     >
+                        {titleText && (
+                            <HeaderText
+                                title={titleText}
+                                theme={'pageTitle'}
+                                className={styles.pageTitle}
+                            />
+                        )}
                         {children}
                     </div>
                     <FooterComponent/>

@@ -1,10 +1,7 @@
-import {MainLayout} from "../../base/components";
-import {CartComponent} from "../../module/components";
+import {CartContainer} from "../../module/containers/CartContainer/CartContainer.tsx";
 
 export const CartPage = () => {
     return (
-        <MainLayout>
-            <CartComponent/>
-        </MainLayout>
+        <CartContainer/>
     )
 }

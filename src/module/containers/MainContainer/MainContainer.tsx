@@ -2,7 +2,7 @@ import {observer} from "mobx-react";
 import {FC, useCallback, useEffect} from "react";
 import {MainComponent} from "../../components";
 import {LoadingWrapper, MainLayout} from "../../../base/components";
-import {deviceStore} from "../../store/deviceStore.ts";
+import {deviceStore} from "../../store";
 import {getAllDataAction} from "../../actions/";
 
 
@@ -19,8 +19,6 @@ export const MainContainer: FC = observer(() => {
     }, []);
 
     if (deviceStore.isLoading) return <LoadingWrapper/>
-
-    if (!data) return null
 
     return (
         <MainLayout>

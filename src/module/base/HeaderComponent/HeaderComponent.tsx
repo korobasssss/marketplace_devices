@@ -35,7 +35,10 @@ export const HeaderComponent: FC<IHeaderWrapper> = (
         >
             <Button
                 onClick={handlerTitleClick}>
-                <HeaderText title={'QPICK'} theme={'pageTitle'}/>
+                <HeaderText
+                    title={'QPICK'}
+                    theme={'mainTitle'}
+                />
             </Button>
             <div
                 className={styles.iconSection}>
