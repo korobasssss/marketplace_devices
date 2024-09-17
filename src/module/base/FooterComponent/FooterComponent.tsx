@@ -1,12 +1,20 @@
 import {FC} from "react";
 import styles from './styles.module.scss'
 import {HeaderText, WhiteWrapper, LinkTo, Button} from "../../../base/components";
-import {ReactComponent as TelegramIcon} from "../../../assets/icons/telegram.svg";
-import {ReactComponent as WhatsappIcon} from "../../../assets/icons/whatsapp.svg";
-import {ReactComponent as VkIcon} from "../../../assets/icons/vk.svg";
 import {ReactComponent as LangIcon} from "../../../assets/icons/lang.svg";
+import {ILinks} from "../../interfaces/ILinks.ts";
 
-export const FooterComponent : FC = () => {
+interface IFooterComponent {
+    footerLinks: ILinks[]
+    contacts: ILinks[]
+}
+
+export const FooterComponent : FC<IFooterComponent> = (
+    {
+        footerLinks,
+        contacts
+    }
+) => {
     return (
         <WhiteWrapper
             rounding={'upRound'}
@@ -18,6 +26,7 @@ export const FooterComponent : FC = () => {
                 <HeaderText
                     title={'QPICK'}
                     theme={'pageTitle'}
+                    className={styles.header}
                 />
                 <nav
                     className={styles.navigation}
@@ -25,31 +34,16 @@ export const FooterComponent : FC = () => {
                     <div
                         className={styles.links_section}
                     >
-                        <LinkTo
-                            href={'/favourites'}
-                            isNewPage
-                        >
-                            Избранное
-                        </LinkTo>
-                        <LinkTo
-                            href={'/favourites'}
-                            isNewPage
-                        >
-                            Корзина
-                        </LinkTo>
-                        <LinkTo
-                            isNewPage
-                            href={'/favourites'}
-                        >
-                            Контакты
-                        </LinkTo>
-                        <LinkTo
-                            isNewPage
-                            href={'/favourites'}
-                        >
-                            Условия сервиса
-                        </LinkTo>
-
+                        {footerLinks.map(oneLink => {
+                            return (
+                                <LinkTo
+                                    href={oneLink.link}
+                                    isNewPage
+                                >
+                                    {oneLink.title}
+                                </LinkTo>
+                            )
+                        })}
                         <div
                             className={styles.lang_section}
                         >
@@ -70,24 +64,19 @@ export const FooterComponent : FC = () => {
                 <nav
                     className={styles.resources}
                 >
-                    <LinkTo
-                        href={'https://vk.com/neoflex_ru'}
-                        isNewPage
-                    >
-                        <VkIcon/>
-                    </LinkTo>
-                    <LinkTo
-                        href={"https://t.me/neoflexcareers"}
-                        isNewPage
-                    >
-                        <TelegramIcon/>
-                    </LinkTo>
-                    <LinkTo
-                        href={'https://wa.me/89601308479'}
-                        isNewPage
-                    >
-                        <WhatsappIcon/>
-                    </LinkTo>
+                    {contacts.map(oneContact => {
+                        return (
+                            <LinkTo
+                                href={oneContact.link}
+                                isNewPage
+                            >
+                                <img
+                                    src={oneContact.title}
+                                    alt={'link'}
+                                />
+                            </LinkTo>
+                        )
+                    })}
                 </nav>
             </footer>
         </WhiteWrapper>

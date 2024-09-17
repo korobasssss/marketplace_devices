@@ -17,6 +17,10 @@
   display: grid;
   grid-template-columns: max-content auto max-content;
   column-gap: 10px;
+
+  .header {
+    margin: 0;
+  }
 }
 
 .navigation {

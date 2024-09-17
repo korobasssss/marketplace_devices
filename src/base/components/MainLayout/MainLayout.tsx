@@ -1,9 +1,8 @@
 import {IWithClassName} from "../../interfaces";
 import {FC, ReactElement, ReactNode} from "react";
 import styles from './styles.module.scss'
-import {FooterComponent} from "../../../module/base";
 import {HeaderText, ScrollWrapper} from "../";
-import {HeaderContainer} from "../../../module/containers/HeaderContainer/HeaderContainer.tsx";
+import {HeaderContainer, FooterContainer} from "../../../module/containers";
 
 interface IMainLayout
     extends IWithClassName {
@@ -38,7 +37,7 @@ export const MainLayout: FC<IMainLayout> = (
                         )}
                         {children}
                     </div>
-                    <FooterComponent/>
+                    <FooterContainer/>
                 </div>
             </div>
         </ScrollWrapper>
