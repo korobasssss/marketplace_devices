@@ -20,15 +20,27 @@ class DeviceStore extends BaseApiStoreClass<IDataOneSectionView[]>{
     }
 
     public setData = (item: IDataOneSectionView[] | null): void => {
-        this.data = item
+        if (item) {
+            this.data = JSON.parse(JSON.stringify(item));
+        } else {
+            this.data = null
+        }
     }
 
     public setFavouritesData = (item: IDataOneDeviceView[] | null): void => {
-        this.favouritesData = item
+        if (item) {
+            this.favouritesData = JSON.parse(JSON.stringify(item));
+        } else {
+            this.favouritesData = null
+        }
     }
 
     public setCartData = (item: IDataOneDeviceCartView[] | null): void => {
-        this.cartData = item
+        if (item) {
+            this.cartData = JSON.parse(JSON.stringify(item));
+        } else {
+            this.cartData = null
+        }
     }
 }
 

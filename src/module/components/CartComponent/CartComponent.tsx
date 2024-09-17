@@ -3,12 +3,13 @@ import {Button, NullDataText, WhiteWrapper} from "../../../base/components";
 import {CartOneDeviceComponent} from "../";
 import {IDataOneDeviceCartView} from "../../interfaces";
 import {FC} from "react";
+import {observer} from "mobx-react";
 
 interface ICartComponent {
     data: IDataOneDeviceCartView[] | null;
 }
 
-export const CartComponent: FC<ICartComponent> = (
+export const CartComponent: FC<ICartComponent> = observer((
     {
         data
     }
@@ -20,7 +21,7 @@ export const CartComponent: FC<ICartComponent> = (
             <div
                 className={styles.main}
             >
-                {!data ?
+                {!data || data.length === 0 ?
                     <NullDataText
                         text={'Корзина пуста...'}
                     />
@@ -53,7 +54,12 @@ export const CartComponent: FC<ICartComponent> = (
                             ИТОГО
                         </header>
                         <div>
-                            ₽ 2927
+                            ₽ {' '}
+                            {data ?
+                                data.reduce((sum, item) => sum + item.price * item.count, 0)
+                                :
+                                0
+                            }
                         </div>
                     </div>
                     <Button
@@ -66,4 +72,4 @@ export const CartComponent: FC<ICartComponent> = (
             </div>
         </div>
     )
-}
+})

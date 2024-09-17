@@ -1,4 +1,4 @@
-import {FC} from "react";
+import {FC, useCallback, useEffect, useState} from "react";
 import {IWithClassName} from "../../../base/interfaces";
 import styles from './styles.module.scss'
 import {Button, ButtonIcon, WhiteWrapper} from "../../../base/components";
@@ -6,6 +6,10 @@ import {ReactComponent as StarIcon} from "../../../assets/icons/star.svg";
 import {ReactComponent as LikeIcon} from "../../../assets/icons/like.svg";
 import {ReactComponent as NoLikeIcon} from "../../../assets/icons/no_like.svg";
 import cx from "classnames";
+import {observer} from "mobx-react";
+import {deviceStore} from "../../store";
+import {useNavigate} from "react-router-dom";
+import {removeFavouritesAction, setCartAction, setFavouritesAction} from "../../actions";
 
 interface IOneDeviceComponent
     extends IWithClassName {
@@ -15,12 +19,10 @@ interface IOneDeviceComponent
     range: number,
     price: number,
     salePrice: number | null
-    isLiked: boolean
-    isCart: boolean
 
 }
 
-export const OneDeviceComponent: FC<IOneDeviceComponent> = (
+export const OneDeviceComponent: FC<IOneDeviceComponent> = observer((
     {
         className,
         id,
@@ -29,11 +31,41 @@ export const OneDeviceComponent: FC<IOneDeviceComponent> = (
         range,
         price,
         salePrice,
-        isCart,
-        isLiked
 
     }
 ) => {
+    const navigate = useNavigate()
+    const [isLiked, setIsLiked] = useState(false)
+    const [isCart, setIsCart] = useState(false)
+
+    const {favouritesData, cartData} = deviceStore
+
+    useEffect(() => {
+        if (favouritesData) {
+            setIsLiked(favouritesData.some(device => device.id === id))
+        }
+        if (cartData) {
+            setIsCart(cartData.some(device => device.id === id))
+        }
+    }, [cartData, favouritesData, id]);
+
+
+    const handlerClickFav = useCallback(() => {
+        if (!isLiked) {
+            setFavouritesAction(id)
+        } else {
+            removeFavouritesAction(id)
+        }
+
+    }, [id, isLiked]);
+
+    const handlerClickCart = useCallback(() => {
+        if (!isCart) {
+            setCartAction(id)
+        } else {
+            navigate('/cart')
+        }
+    }, [id, isCart, navigate]);
 
     return (
         <WhiteWrapper
@@ -48,6 +80,7 @@ export const OneDeviceComponent: FC<IOneDeviceComponent> = (
                 className={styles.one_device_main}
             >
                 <ButtonIcon
+                    onClick={handlerClickFav}
                     className={styles.button_icon}
                 >
                     { isLiked ?
@@ -110,6 +143,7 @@ export const OneDeviceComponent: FC<IOneDeviceComponent> = (
                         </div>
                             <Button
                                 theme={'base'}
+                                onClick={handlerClickCart}
                             >
                                 {!isCart ? 'Купить ': 'В корзине'}
                             </Button>
@@ -118,4 +152,4 @@ export const OneDeviceComponent: FC<IOneDeviceComponent> = (
             </div>
         </WhiteWrapper>
     )
-}
+})

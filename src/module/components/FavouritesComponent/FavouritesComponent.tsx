@@ -14,7 +14,7 @@ export const FavouritesComponent: FC<IFavouritesComponent> = observer((
         data
     }
 ) => {
-    if (!data) return (
+    if (!data || data.length === 0) return (
         <NullDataText
             text={'В избранном пусто...'}
             className={styles.no_data}
