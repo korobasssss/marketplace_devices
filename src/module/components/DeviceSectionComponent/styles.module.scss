@@ -14,3 +14,21 @@
     column-gap: 30px;
   }
 }
+
+@media screen and (max-width: $SCREEN_WIDTH) {
+  .device_main {
+    .ul_devices {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width: $SCREEN_M) {
+  .device_main {
+    .ul_devices {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
