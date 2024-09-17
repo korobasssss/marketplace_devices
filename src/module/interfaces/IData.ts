@@ -1,5 +1,6 @@
 export interface IDataOneSectionView {
     title: string,
+    value: string
     devices: IDataOneDeviceView[]
 }
 

@@ -4,8 +4,10 @@ import {CartComponent} from "../../components";
 import {LoadingWrapper, MainLayout} from "../../../base/components";
 import {useCallback, useEffect} from "react";
 import {getCartAction} from "../../actions";
+import {useTranslation} from "react-i18next";
 
 export const CartContainer = observer(() => {
+    const {t} = useTranslation()
     const {cartData} = deviceStore
 
     const handlerGetCartData = useCallback(() => {
@@ -20,7 +22,7 @@ export const CartContainer = observer(() => {
 
     return (
         <MainLayout
-            titleText={'Корзина'}>
+            titleText={t('cart')}>
             <CartComponent
                 data={cartData}
             />

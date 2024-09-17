@@ -4,6 +4,7 @@ import {CartOneDeviceComponent} from "../";
 import {IDataOneDeviceCartView} from "../../interfaces";
 import {FC} from "react";
 import {observer} from "mobx-react";
+import {useTranslation} from "react-i18next";
 
 interface ICartComponent {
     data: IDataOneDeviceCartView[] | null;
@@ -14,6 +15,8 @@ export const CartComponent: FC<ICartComponent> = observer((
         data
     }
 ) => {
+    const {t} = useTranslation()
+
     return (
         <div
             className={styles.cart_wrapper}
@@ -23,7 +26,7 @@ export const CartComponent: FC<ICartComponent> = observer((
             >
                 {!data || data.length === 0 ?
                     <NullDataText
-                        text={'Корзина пуста...'}
+                        text={t('cart_no_data')}
                     />
                     :
                     <ul
@@ -51,7 +54,7 @@ export const CartComponent: FC<ICartComponent> = observer((
                         className={styles.price_section}
                     >
                         <header>
-                            ИТОГО
+                            {t('total')}
                         </header>
                         <div>
                             ₽ {' '}
@@ -66,7 +69,7 @@ export const CartComponent: FC<ICartComponent> = observer((
                         disabled={!data}
                         theme={'submit'}
                     >
-                        Перейти к оформлению
+                        {t('order')}
                     </Button>
                 </WhiteWrapper>
             </div>

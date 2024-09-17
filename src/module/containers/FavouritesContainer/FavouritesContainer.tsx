@@ -4,8 +4,10 @@ import {deviceStore} from "../../store";
 import {FavouritesComponent} from "../../components";
 import {FC, useCallback, useEffect} from "react";
 import {getFavouritesAction} from "../../actions";
+import {useTranslation} from "react-i18next";
 
 export const FavouritesContainer: FC = observer(() => {
+    const {t} = useTranslation()
     const {favouritesData} = deviceStore
 
     const handlerGetFavData = useCallback(() => {
@@ -20,7 +22,7 @@ export const FavouritesContainer: FC = observer(() => {
 
     return (
         <MainLayout
-            titleText={'Избранное'}
+            titleText={t('favourites')}
         >
             <FavouritesComponent
                 data={favouritesData}

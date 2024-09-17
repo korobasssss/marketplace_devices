@@ -1,11 +1,14 @@
-import {FC} from "react";
+import {FC, useCallback} from "react";
 import styles from './styles.module.scss'
 import {HeaderText, WhiteWrapper, LinkTo, Button} from "../../../base/components";
 import {ReactComponent as LangIcon} from "../../../assets/icons/lang.svg";
-import {ILinks} from "../../interfaces/ILinks.ts";
+import {ILinks, ILinksWithValue} from "../../interfaces/ILinks.ts";
+import {useTranslation} from "react-i18next";
+import i18n from "../../../i18n.ts";
+import {informationStore} from "../../store";
 
 interface IFooterComponent {
-    footerLinks: ILinks[]
+    footerLinks: ILinksWithValue[]
     contacts: ILinks[]
 }
 
@@ -15,6 +18,19 @@ export const FooterComponent : FC<IFooterComponent> = (
         contacts
     }
 ) => {
+    const { t } = useTranslation();
+
+    const {languages} = informationStore
+
+    const changeLanguage = useCallback((lang: string) => {
+        i18n.changeLanguage(lang);
+    }, []);
+
+    const handleChangeLanguage = useCallback((lang: string) => {
+        changeLanguage(lang);
+    }, []);
+
+
     return (
         <WhiteWrapper
             rounding={'upRound'}
@@ -40,7 +56,7 @@ export const FooterComponent : FC<IFooterComponent> = (
                                     href={oneLink.link}
                                     isNewPage
                                 >
-                                    {oneLink.title}
+                                    {t(oneLink.value)}
                                 </LinkTo>
                             )
                         })}
@@ -48,16 +64,17 @@ export const FooterComponent : FC<IFooterComponent> = (
                             className={styles.lang_section}
                         >
                             <LangIcon/>
-                            <Button
-                                theme={'blackOrOrange'}
-                            >
-                                Рус
-                            </Button>
-                            <Button
-                                theme={'blackOrOrange'}
-                            >
-                                Eng
-                            </Button>
+                            {languages.map(oneLang => {
+                                return (
+                                    <Button
+                                        theme={'blackOrOrange'}
+                                        onClick={() => handleChangeLanguage(oneLang.shortName)}
+                                        active={i18n.language === oneLang.shortName}
+                                    >
+                                        {oneLang.title}
+                                    </Button>
+                                )
+                            })}
                         </div>
                     </div>
                 </nav>

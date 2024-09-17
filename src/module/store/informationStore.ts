@@ -1,24 +1,29 @@
 import { makeObservable, observable} from "mobx";
-import {ILinks} from "../interfaces/ILinks.ts";
+import {ILinks, ILinksWithValue} from "../interfaces/ILinks.ts";
+import {ILanguage} from "../interfaces/ILanguage.ts";
 
 
 class InformationStore {
-    public footerLinks: ILinks[] = [
+    public footerLinks: ILinksWithValue[] = [
         {
             title: 'Избранное',
-            link: '/favourites'
+            link: '/favourites',
+            value: 'favourites'
         },
         {
             title: 'Корзина',
-            link: '/cart'
+            link: '/cart',
+            value: 'cart'
         },
         {
             title: 'Контакты',
-            link: '/contacts'
+            link: '/contacts',
+            value: 'contacts'
         },
         {
             title: 'Условия сервиса',
-            link: '/rules'
+            link: '/rules',
+            value: 'rules'
         }
     ];
     public contacts: ILinks[] = [
@@ -36,10 +41,26 @@ class InformationStore {
         },
     ];
 
+    public languages: ILanguage[] = [
+        {
+            title: 'Рус',
+            shortName: 'ru'
+        },
+        {
+            title: 'Eng',
+            shortName: 'en'
+        },
+        {
+            title: '한국어',
+            shortName: 'ko'
+        }
+    ]
+
     public constructor() {
         makeObservable({
             footerLinks: observable,
-            contacts: observable
+            contacts: observable,
+            languages: observable
         })
     }
 }

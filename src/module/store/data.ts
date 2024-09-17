@@ -5,6 +5,7 @@ import {IDataOneSectionView} from "../interfaces";
 export const data: IDataOneSectionView[] = [
     {
         title: 'Наушники',
+        value: 'headphones',
         devices: [
             {
                 id: 0,
@@ -58,6 +59,7 @@ export const data: IDataOneSectionView[] = [
     },
     {
         title: 'Беспроводные наушники',
+        value: 'wireless_headphones',
         devices: [
             {
                 id: 6,

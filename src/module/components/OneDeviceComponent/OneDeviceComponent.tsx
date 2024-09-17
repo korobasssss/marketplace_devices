@@ -10,6 +10,7 @@ import {observer} from "mobx-react";
 import {deviceStore} from "../../store";
 import {useNavigate} from "react-router-dom";
 import {removeFavouritesAction, setCartAction, setFavouritesAction} from "../../actions";
+import {useTranslation} from "react-i18next";
 
 interface IOneDeviceComponent
     extends IWithClassName {
@@ -34,6 +35,7 @@ export const OneDeviceComponent: FC<IOneDeviceComponent> = observer((
 
     }
 ) => {
+    const { t } = useTranslation();
     const navigate = useNavigate()
     const [isLiked, setIsLiked] = useState(false)
     const [isCart, setIsCart] = useState(false)
@@ -145,7 +147,7 @@ export const OneDeviceComponent: FC<IOneDeviceComponent> = observer((
                                 theme={'base'}
                                 onClick={handlerClickCart}
                             >
-                                {!isCart ? 'Купить ': 'В корзине'}
+                                {!isCart ? t('buy'): t('to_cart')}
                             </Button>
                     </div>
                 </div>

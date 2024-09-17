@@ -3,6 +3,7 @@ import {DeviceSectionComponent} from "../";
 import {IDataOneSectionView} from "../../interfaces";
 import {FC} from "react";
 import {NullDataText} from "../../../base/components";
+import {useTranslation} from "react-i18next";
 
 
 interface IMainComponent {
@@ -14,9 +15,11 @@ export const MainComponent: FC<IMainComponent> = observer((
         data
     }
 ) => {
+    const {t} = useTranslation()
+
     if (!data || data.length === 0) return (
         <NullDataText
-            text={'Нет товаров'}
+            text={t('no_data')}
         />
     )
 
@@ -25,7 +28,7 @@ export const MainComponent: FC<IMainComponent> = observer((
             {data.map(section => {
                 return (
                     <DeviceSectionComponent
-                        title={section.title}
+                        title={t(section.value)}
                         data={section.devices}
                     />
                 )
