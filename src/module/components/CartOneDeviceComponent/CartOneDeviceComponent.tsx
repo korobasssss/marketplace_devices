@@ -1,11 +1,13 @@
 import {IWithClassName} from "../../../base/interfaces";
-import {FC} from "react";
+import {FC, useCallback} from "react";
 import {ButtonIcon, WhiteWrapper} from "../../../base/components";
 import styles from './styles.module.scss'
 import {ReactComponent as GarbageIcon} from "../../../assets/icons/garbage.svg";
 import {ReactComponent as PlusIcon} from "../../../assets/icons/plus.svg";
 import {ReactComponent as MinusIcon} from "../../../assets/icons/minus.svg";
 import cx from "classnames";
+import {removeCartAction, updateCountCartAction} from "../../actions";
+import {observer} from "mobx-react";
 
 interface ICartOneDeviceComponent
     extends IWithClassName {
@@ -16,7 +18,7 @@ interface ICartOneDeviceComponent
     count: number
 }
 
-export const CartOneDeviceComponent: FC<ICartOneDeviceComponent> = (
+export const CartOneDeviceComponent: FC<ICartOneDeviceComponent> = observer((
     {
         className,
         id,
@@ -26,6 +28,22 @@ export const CartOneDeviceComponent: FC<ICartOneDeviceComponent> = (
         count
     }
 ) => {
+
+    const handlerRemoveDevice = useCallback(() => {
+        removeCartAction(id)
+    }, [id]);
+
+    const handlerAddCount = useCallback(() => {
+        updateCountCartAction(true, id)
+    }, [id]);
+
+    const handlerRemoveCount = useCallback(() => {
+        if (count > 1) {
+            updateCountCartAction(false, id)
+        }
+
+    }, [count, id]);
+
     return (
         <WhiteWrapper
             rounding={'allRound'}
@@ -67,7 +85,9 @@ export const CartOneDeviceComponent: FC<ICartOneDeviceComponent> = (
                 <div
                     className={styles.delete_section}
                 >
-                    <ButtonIcon>
+                    <ButtonIcon
+                        onClick={handlerRemoveDevice}
+                    >
                         <GarbageIcon/>
                     </ButtonIcon>
                 </div>
@@ -78,7 +98,9 @@ export const CartOneDeviceComponent: FC<ICartOneDeviceComponent> = (
                 <div
                     className={styles.count_section}
                 >
-                    <ButtonIcon>
+                    <ButtonIcon
+                        onClick={handlerRemoveCount}
+                    >
                         <MinusIcon/>
                     </ButtonIcon>
                     <div
@@ -86,7 +108,9 @@ export const CartOneDeviceComponent: FC<ICartOneDeviceComponent> = (
                     >
                         {count}
                     </div>
-                    <ButtonIcon>
+                    <ButtonIcon
+                        onClick={handlerAddCount}
+                    >
                         <PlusIcon/>
                     </ButtonIcon>
                 </div>
@@ -98,4 +122,4 @@ export const CartOneDeviceComponent: FC<ICartOneDeviceComponent> = (
             </div>
         </WhiteWrapper>
     )
-}
+})
