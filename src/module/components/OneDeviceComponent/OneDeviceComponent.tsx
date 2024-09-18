@@ -5,6 +5,7 @@ import {Button, ButtonIcon, Popup, WhiteWrapper} from "../../../base/components"
 import {ReactComponent as StarIcon} from "../../../assets/icons/star.svg";
 import {ReactComponent as LikeIcon} from "../../../assets/icons/like.svg";
 import {ReactComponent as NoLikeIcon} from "../../../assets/icons/no_like.svg";
+import {ReactComponent as InfoIcon} from "../../../assets/icons/info.svg";
 import cx from "classnames";
 import {observer} from "mobx-react";
 import {deviceStore} from "../../store";
@@ -117,16 +118,21 @@ export const OneDeviceComponent: FC<IOneDeviceComponent> = observer((
                     <div
                         className={styles.name_range_wrapper}
                     >
-                        <header
-                            className={styles.device_name}
+                        <div
+                            className={styles.name_section}
                         >
+                            <header
+                                className={styles.device_name}
+                            >
+                                {name}
+                            </header>
                             <Button
                                 theme={'base'}
                                 onClick={handlerChangePopup}
                             >
-                                {name}
+                                <InfoIcon/>
                             </Button>
-                        </header>
+                        </div>
                         <div
                             className={styles.price_wrapper}
                         >
