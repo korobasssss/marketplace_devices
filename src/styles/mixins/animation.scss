@@ -1,0 +1,28 @@
+@import '../variables/index';
+
+
+@mixin animation-opacity-exit() {
+  @keyframes opacity-exit {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  animation: opacity-exit $TRANSITION_DURATION;
+}
+
+@mixin animation-opacity-enter() {
+  @keyframes opacity-enter {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  animation: opacity-enter $TRANSITION_DURATION;
+}
