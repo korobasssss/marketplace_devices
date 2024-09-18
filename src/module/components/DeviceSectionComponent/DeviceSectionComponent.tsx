@@ -40,6 +40,7 @@ export const DeviceSectionComponent: FC<IDeviceSectionComponent> = observer((
                             range={oneDevice.range}
                             price={oneDevice.price}
                             salePrice={oneDevice.salePrice}
+                            description={oneDevice.description}
                         />
                     )
                 })}

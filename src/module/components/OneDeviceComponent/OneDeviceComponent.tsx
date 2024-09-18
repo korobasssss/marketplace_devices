@@ -1,7 +1,7 @@
 import {FC, useCallback, useEffect, useState} from "react";
 import {IWithClassName} from "../../../base/interfaces";
 import styles from './styles.module.scss'
-import {Button, ButtonIcon, WhiteWrapper} from "../../../base/components";
+import {Button, ButtonIcon, Popup, WhiteWrapper} from "../../../base/components";
 import {ReactComponent as StarIcon} from "../../../assets/icons/star.svg";
 import {ReactComponent as LikeIcon} from "../../../assets/icons/like.svg";
 import {ReactComponent as NoLikeIcon} from "../../../assets/icons/no_like.svg";
@@ -11,6 +11,8 @@ import {deviceStore} from "../../store";
 import {useNavigate} from "react-router-dom";
 import {removeFavouritesAction, setCartAction, setFavouritesAction} from "../../actions";
 import {useTranslation} from "react-i18next";
+import {OneDeviceFullInformation} from "../";
+import {IDataDescriptionOneView} from "../../interfaces";
 
 interface IOneDeviceComponent
     extends IWithClassName {
@@ -19,7 +21,8 @@ interface IOneDeviceComponent
     name: string,
     range: number,
     price: number,
-    salePrice: number | null
+    salePrice: number | null,
+    description: IDataDescriptionOneView[]
 
 }
 
@@ -32,13 +35,15 @@ export const OneDeviceComponent: FC<IOneDeviceComponent> = observer((
         range,
         price,
         salePrice,
+        description
 
     }
 ) => {
-    const { t } = useTranslation();
+    const {t} = useTranslation();
     const navigate = useNavigate()
     const [isLiked, setIsLiked] = useState(false)
     const [isCart, setIsCart] = useState(false)
+    const [isPopupOpen, setIsPopupOpen] = useState(false)
 
     const {favouritesData, cartData} = deviceStore
 
@@ -69,6 +74,10 @@ export const OneDeviceComponent: FC<IOneDeviceComponent> = observer((
         }
     }, [id, isCart, navigate]);
 
+    const handlerChangePopup = useCallback(() => {
+        setIsPopupOpen(!isPopupOpen)
+    }, [isPopupOpen]);
+
     return (
         <WhiteWrapper
             key={id}
@@ -85,13 +94,13 @@ export const OneDeviceComponent: FC<IOneDeviceComponent> = observer((
                     onClick={handlerClickFav}
                     className={styles.button_icon}
                 >
-                    { isLiked ?
+                    {isLiked ?
                         <LikeIcon
                             className={styles.icon}
                         /> :
                         <NoLikeIcon
                             className={styles.icon}
-                        /> }
+                        />}
                 </ButtonIcon>
                 <div
                     className={styles.img_section}>
@@ -111,7 +120,12 @@ export const OneDeviceComponent: FC<IOneDeviceComponent> = observer((
                         <header
                             className={styles.device_name}
                         >
-                            {name}
+                            <Button
+                                theme={'base'}
+                                onClick={handlerChangePopup}
+                            >
+                                {name}
+                            </Button>
                         </header>
                         <div
                             className={styles.price_wrapper}
@@ -143,15 +157,28 @@ export const OneDeviceComponent: FC<IOneDeviceComponent> = observer((
                                 {range}
                             </div>
                         </div>
-                            <Button
-                                theme={'base'}
-                                onClick={handlerClickCart}
-                            >
-                                {!isCart ? t('buy'): t('to_cart')}
-                            </Button>
+                        <Button
+                            theme={'base'}
+                            onClick={handlerClickCart}
+                        >
+                            {!isCart ? t('buy') : t('to_cart')}
+                        </Button>
                     </div>
                 </div>
             </div>
+            {isPopupOpen && (
+                <Popup
+                    title={name}
+                    handleCancelButtonClick={handlerChangePopup}
+                    isPopupOpen={isPopupOpen}
+                >
+                    <OneDeviceFullInformation
+                        id={id}
+                        deviceImage={deviceImage}
+                        description={description}
+                    />
+                </Popup>
+            )}
         </WhiteWrapper>
     )
 })
