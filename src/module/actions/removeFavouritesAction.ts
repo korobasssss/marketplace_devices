@@ -1,7 +1,6 @@
 import {deviceStore} from "../store";
-import {getDataFromStorage} from "../utils/getDataFromStorage.ts";
+import {getDataFromStorage, setDataToStorage} from "../utils";
 import {IDataOneDeviceView} from "../interfaces";
-import {setDataToStorage} from "../utils/setDataToStorage.ts";
 
 export const removeFavouritesAction = async (id: number) => {
     deviceStore.setLoading()

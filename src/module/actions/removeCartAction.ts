@@ -1,5 +1,5 @@
 import {deviceStore} from "../store";
-import {setDataToStorage} from "../utils/setDataToStorage.ts";
+import {setDataToStorage} from "../utils";
 
 export const removeCartAction = async (id: number) => {
     deviceStore.setLoading()

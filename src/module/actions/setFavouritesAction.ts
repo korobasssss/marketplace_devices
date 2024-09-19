@@ -1,6 +1,4 @@
-import {getDataFromStorage} from "../utils/getDataFromStorage.ts";
-import {findDevice} from "../utils/findDevice.ts";
-import {setDataToStorage} from "../utils/setDataToStorage.ts";
+import {getDataFromStorage, findDevice, setDataToStorage} from "../utils";
 import {IDataOneDeviceView} from "../interfaces";
 import {deviceStore} from "../store";
 

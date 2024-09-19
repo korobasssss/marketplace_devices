@@ -1,7 +1,7 @@
 import {deviceStore} from "../store";
 import {data} from "../store";
 import {IDataOneDeviceCartView, IDataOneDeviceView} from "../interfaces";
-import {getDataFromStorage} from "../utils/getDataFromStorage.ts";
+import {getDataFromStorage} from "../utils";
 
 const getDataFromServer = async (): Promise<any> => {
     return new Promise<any>((resolve) => {

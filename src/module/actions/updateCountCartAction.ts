@@ -1,5 +1,5 @@
 import {deviceStore} from "../store";
-import {setDataToStorage} from "../utils/setDataToStorage.ts";
+import {setDataToStorage} from "../utils";
 import {IDataOneDeviceCartView} from "../interfaces";
 
 export const updateCountCartAction = async (flag: boolean, id: number) => {

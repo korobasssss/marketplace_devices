@@ -1,5 +1,5 @@
 import {deviceStore} from "../store";
-import {getDataFromStorage} from "../utils/getDataFromStorage.ts";
+import {getDataFromStorage} from "../utils";
 import {IDataOneDeviceView} from "../interfaces";
 
 export const getFavouritesAction = async () => {
