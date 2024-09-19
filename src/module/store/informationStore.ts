@@ -17,12 +17,12 @@ class InformationStore {
         },
         {
             title: 'Контакты',
-            link: '/contacts',
+            link: 'tel:+1234567890',
             value: 'contacts'
         },
         {
             title: 'Условия сервиса',
-            link: '/rules',
+            link: 'https://yandex.ru/legal/market_termsofuse',
             value: 'rules'
         }
     ];
