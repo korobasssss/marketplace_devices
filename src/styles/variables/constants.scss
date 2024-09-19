@@ -1,3 +1,5 @@
+@import "./colors";
+
 // Screen
 
 $SCREEN_WIDTH: 1110px;
@@ -12,9 +14,13 @@ $SCREEN_POPUP: 650px;
 
 // Roundings
 
+$ROUNDING_INPUT: 10px;
 $ROUNDING_BUTTON: 20px;
 $ROUNDING_MAIN: 30px;
 $ROUNDING_FOOTER: 30px 30px 0 0;
+
+// Border
+$INPUT_BORDER: 1px solid $BORDER_INPUT;
 
 // Transition
 
