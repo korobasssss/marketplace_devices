@@ -1,5 +1,5 @@
-import {MainComponent} from "../../module/components/MainComponent";
+import {MainContainer} from "../../module/containers";
 
 export const MainPage = () => {
-    return <MainComponent/>
+    return <MainContainer/>
 }

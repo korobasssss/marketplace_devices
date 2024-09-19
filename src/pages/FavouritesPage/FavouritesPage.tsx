@@ -1,3 +1,7 @@
+import {FavouritesContainer} from "../../module/containers";
+
 export const FavouritesPage = () => {
-    return <div>FavouritePage</div>
+    return (
+        <FavouritesContainer/>
+    )
 }

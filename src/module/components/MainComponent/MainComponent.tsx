@@ -1,16 +1,39 @@
+import {observer} from "mobx-react";
+import {DeviceSectionComponent} from "../";
+import {IDataOneSectionView} from "../../interfaces";
+import {FC} from "react";
+import {NullDataText} from "../../../base/components";
+import {useTranslation} from "react-i18next";
 
-import styles from './styles.module.scss'
-import {FooterComponent, HeaderComponent} from "../../base";
 
-
-export const MainComponent = () => {
-    return (
-        <div
-            className={styles.main_section}
-        >
-            <HeaderComponent isCartIcon isFavoritesIcon/>
-            <main>data</main>
-            <FooterComponent/>
-        </div>
-    )
+interface IMainComponent {
+    data: IDataOneSectionView[] | null
 }
+
+export const MainComponent: FC<IMainComponent> = observer((
+    {
+        data
+    }
+) => {
+    const {t} = useTranslation()
+
+    if (!data || data.length === 0) return (
+        <NullDataText
+            text={t('no_data')}
+        />
+    )
+
+    return (
+        <ul>
+            {data.map((section) => {
+                return (
+                    <DeviceSectionComponent
+                        key={section.id}
+                        title={t(section.value)}
+                        data={section.devices}
+                    />
+                )
+            })}
+        </ul>
+    )
+})

@@ -1,25 +1,52 @@
 import styles from './styles.module.scss'
-import {FC} from "react";
-import {CounterNumber, HeaderText, LinkTo} from "../../../base/components";
+import {FC, useCallback} from "react";
+import {Button, CounterNumber, HeaderText, LinkTo} from "../../../base/components";
 import {ReactComponent as FavIcon} from '../../../assets/icons/favourites.svg';
 import {ReactComponent as CartIcon} from '../../../assets/icons/cart.svg';
+import {IWithClassName} from "../../../base/interfaces";
+import cx from "classnames";
+import {useNavigate} from "react-router-dom";
+import {observer} from "mobx-react";
+import {IDataOneDeviceCartView, IDataOneDeviceView} from "../../interfaces";
 
-interface IHeaderWrapper {
+interface IHeaderWrapper
+    extends IWithClassName {
     isFavoritesIcon: boolean
     isCartIcon: boolean
+    favDava: IDataOneDeviceView[] | null
+    cartData: IDataOneDeviceCartView[] | null
 }
 
-export const HeaderComponent: FC<IHeaderWrapper> = (
+export const HeaderComponent: FC<IHeaderWrapper> = observer((
     {
+        className,
         isFavoritesIcon,
-        isCartIcon
+        isCartIcon,
+        favDava,
+        cartData
     }
 ) => {
+    const navigation = useNavigate()
+
+
+    const handlerTitleClick = useCallback(() => {
+        navigation('/')
+    }, [navigation]);
+    
     return (
         <section
-            className={styles.HeaderWrapper}
+            className={cx(
+                className,
+                styles.HeaderWrapper
+            )}
         >
-            <HeaderText title={'QPICK'} theme={'pageTitle'}/>
+            <Button
+                onClick={handlerTitleClick}>
+                <HeaderText
+                    title={'QPICK'}
+                    theme={'mainTitle'}
+                />
+            </Button>
             <div
                 className={styles.iconSection}>
                 {isFavoritesIcon && (
@@ -30,7 +57,8 @@ export const HeaderComponent: FC<IHeaderWrapper> = (
                         <FavIcon/>
                         <CounterNumber
                             className={styles.Link_Counter}
-                            counter={2}/>
+                            counter={favDava ? favDava.length : 0}
+                        />
                     </LinkTo>
                 )}
                 {isCartIcon && (
@@ -42,10 +70,11 @@ export const HeaderComponent: FC<IHeaderWrapper> = (
                         <CartIcon/>
                         <CounterNumber
                             className={styles.Link_Counter}
-                            counter={2}/>
+                            counter={cartData ? cartData.length : 0}
+                        />
                     </LinkTo>
                 )}
             </div>
         </section>
     )
-}
+})

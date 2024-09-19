@@ -1,7 +1,26 @@
+@import "./colors";
+
+// Screen
+
+$SCREEN_WIDTH: 1110px;
+$SCREEN_L: 900px;
+$SCREEN_M: 770px;
+$SCREEN_M: 770px;
+$SCREEN_S: 600px;
+$SCREEN_XS: 500px;
+$SCREEN_XXS: 400px;
+
+$SCREEN_POPUP: 650px;
+
 // Roundings
 
+$ROUNDING_INPUT: 10px;
+$ROUNDING_BUTTON: 20px;
 $ROUNDING_MAIN: 30px;
 $ROUNDING_FOOTER: 30px 30px 0 0;
+
+// Border
+$INPUT_BORDER: 1px solid $BORDER_INPUT;
 
 // Transition
 

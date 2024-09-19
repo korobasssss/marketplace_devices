@@ -6,7 +6,7 @@ import styles from './style.module.scss'
 interface IHeaderText
     extends IWithClassName {
     title: string,
-    theme: 'pageTitle' | 'sectionTitle'
+    theme: 'mainTitle' | 'pageTitle' | 'sectionTitle'
 }
 
 export const HeaderText: FC<IHeaderText> = (

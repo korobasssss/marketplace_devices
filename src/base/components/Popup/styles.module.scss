@@ -1,0 +1,57 @@
+@import 'src/styles/variables/index';
+@import '../../../styles/mixins/index';
+
+.overlay {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: grid;
+  align-items: center;
+  justify-items: center;
+
+  &_closed {
+    @include animation-opacity-exit;
+  }
+
+  &_opened {
+    @include animation-opacity-enter;
+  }
+}
+
+.modal_section {
+  width: $SCREEN_POPUP;
+  display: grid;
+  height: max-content;
+
+  .modal {
+    position: relative;
+    display: grid;
+    row-gap: 30px;
+
+    .header_section {
+      display: grid;
+      
+      .header {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+      }
+
+      .close {
+        position: absolute;
+        display: grid;
+        justify-self: end;
+        align-self: start;
+      }
+    }
+    
+  }
+  
+  @media screen and (max-width: $SCREEN_POPUP + 10) {
+    width: 90%;
+  }
+}

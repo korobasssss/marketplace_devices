@@ -1,0 +1,10 @@
+@import 'src/styles/variables/index';
+@import '../../../styles/mixins/index';
+
+.scroll_wrapper {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: $SCROLLBAR $BGC_MAIN;
+}

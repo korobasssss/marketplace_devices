@@ -1,0 +1,119 @@
+@import 'src/styles/variables/index';
+@import '../../../styles/mixins/index';
+
+
+.one_device_wrapper {
+  position: relative;
+  padding: 25px;
+
+  width: 350px;
+  min-height: 407px;
+
+  display: grid;
+
+  .button_icon {
+    position: absolute;
+    visibility: hidden;
+
+    display: grid;
+    justify-self: end;
+
+    .icon {
+      display: block;
+      transition: $TRANSITION;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .one_device_main {
+    display: grid;
+    grid-template-rows: min-content auto;
+    row-gap: 50px;
+
+    .img_section {
+      height: 237px;
+
+      display: grid;
+      justify-items: center;
+      align-items: center;
+
+      .device_image {
+        display: grid;
+
+        max-width: 219px;
+        max-height: 100%;
+
+        object-fit: cover;
+      }
+    }
+
+    .data_wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .name_range_wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        gap: 10px;
+
+        .name_section {
+          display: flex;
+          gap: 5px;
+          align-items: center;
+
+          .device_name {
+            @include font-s-bold;
+          }
+        }
+
+        .range_wrapper {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          .range {
+            @include font-s-bold;
+            color: $TEXT_HEADER_SECTION;
+          }
+        }
+
+        .price_wrapper {
+          display: grid;
+          justify-items: center;
+
+          .actual_price {
+            @include font-s-bold;
+            color: $TEXT_PRICE;
+          }
+
+          .base_price {
+            text-decoration: line-through;
+            @include font-xxs-bold;
+            color: $TEXT_PRICE_DISCOUNT;
+          }
+        }
+      }
+    }
+  }
+
+  &:hover {
+    .button_icon {
+      visibility: visible;
+    }
+
+    .icon {
+      display: block;
+    }
+  }
+}
+
+@media screen and (max-width: $SCREEN_WIDTH) {
+  .one_device_wrapper {
+    width: 100%;
+  }
+}

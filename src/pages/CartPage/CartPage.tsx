@@ -1,3 +1,7 @@
+import {CartContainer} from "../../module/containers/CartContainer/CartContainer.tsx";
+
 export const CartPage = () => {
-    return <div>CartPage</div>
+    return (
+        <CartContainer/>
+    )
 }

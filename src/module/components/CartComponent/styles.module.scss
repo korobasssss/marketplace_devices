@@ -1,0 +1,47 @@
+@import 'src/styles/variables/index';
+@import '../../../styles/mixins/index';
+
+.cart_wrapper {
+  margin-top: 29px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.title {
+  color: $TEXT_TITLE;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: auto 350px;
+  gap: 127px;
+
+  .devices_section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+.total_section {
+  height: min-content;
+  padding: 0;
+  display: grid;
+
+  .price_section {
+    padding: 20px 20px 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    @include font-xs-bold;
+    color: $TEXT_BLACK;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .main {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 30px;
+  }
+}

@@ -4,6 +4,7 @@
 .Button {
   border: none;
   cursor: pointer;
+  transition: $TRANSITION;
 
   &_base {
     height: min-content;
@@ -16,14 +17,13 @@
   &_submit {
     height: 65px;
     width: 100%;
-    border-radius: $ROUNDING_MAIN;
+    border-radius: $ROUNDING_BUTTON;
     background-color: $BUTTON_BGC;
     color: $BUTTON_TEXT_WHITE;
     @include font-s-bold;
   }
 
   &_blackOrOrange {
-    transition: $TRANSITION;
     height: min-content;
     width: max-content;
     color: $BUTTON_TEXT_BLACK;
@@ -31,8 +31,12 @@
     @include font-xs-almost-bold;
 
     &_active {
-      transition: $TRANSITION;
       color: $BUTTON_TEXT_ORANGE;
     }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $BUTTON_BGC_DISABLED;
   }
 }

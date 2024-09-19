@@ -1,0 +1,27 @@
+@import 'src/styles/variables/index';
+@import '../../../styles/mixins/index';
+
+.main_section {
+  height: 100%;
+  overflow: auto;
+  background-color: #EAEAEA;
+  display: grid;
+}
+
+.main {
+  width: 1110px;
+  height: 100%;
+  display: grid;
+  justify-self: center;
+  grid-template-rows: max-content auto max-content;
+}
+
+@media screen and (max-width: $SCREEN_WIDTH) {
+  .main {
+    width: 100%;
+
+    .container {
+      padding: 0 10px;
+    }
+  }
+}
