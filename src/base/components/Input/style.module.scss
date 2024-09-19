@@ -1,0 +1,31 @@
+@import '../../../styles/variables/index';
+@import '../../../styles/mixins/index';
+
+.InputWrapper {
+  display: grid;
+  row-gap: 5px;
+
+  .label {
+    @include font-xs-regular;
+  }
+
+  .Input {
+    height: 40px;
+    padding: 0 10px;
+    border-radius: $ROUNDING_INPUT;
+    border: $INPUT_BORDER;
+    transition: $TRANSITION;
+    @include font-xxs-regular;
+
+    &:focus {
+      transition: $TRANSITION;
+      box-shadow: $SHADOW_MAIN;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: $INPUT_BGC_DISABLED;
+    }
+  }
+}
+
