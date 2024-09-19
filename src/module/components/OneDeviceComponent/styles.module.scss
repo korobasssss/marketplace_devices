@@ -58,6 +58,7 @@
       .name_range_wrapper {
         display: flex;
         justify-content: space-between;
+        align-items: start;
         gap: 10px;
 
         .name_section {
