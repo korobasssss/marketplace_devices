@@ -27,6 +27,9 @@ i18n
                     comment_to_order: 'Комментарий к доставке',
                     input_address: 'Введите адрес доставки',
                     input_comment: 'Введите комментарий',
+                    success_order: 'Ваш заказ успешно оформлен',
+                    back_to: 'Вернуться на',
+                    main_page: 'главную страницу',
                 }
             },
             en: {
@@ -51,6 +54,9 @@ i18n
                     comment_to_order: 'Delivery Comment',
                     input_address: 'Enter the delivery address',
                     input_comment: 'Enter a comment',
+                    success_order: 'Your order has been successfully placed',
+                    back_to: 'Back to',
+                    main_page: 'main page',
                 }
             },
             ko: {
@@ -75,6 +81,9 @@ i18n
                     comment_to_order: '배달 코멘트',
                     input_address: '배달 주소를 입력',
                     input_comment: '댓글 입력',
+                    success_order: '주문이 성공적으로 완료되었습니다',
+                    back_to: '로 돌아 가기',
+                    main_page: '메인 페이지',
                 }
             }
         },

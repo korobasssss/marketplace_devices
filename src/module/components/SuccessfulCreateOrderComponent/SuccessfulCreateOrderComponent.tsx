@@ -1,8 +1,11 @@
 import {CenterMessage, LinkTo, MainLayout} from "../../../base/components";
 import {ReactComponent as SuccessIcon} from "../../../assets/icons/success.svg";
 import styles from './styles.module.scss'
+import {useTranslation} from "react-i18next";
 
 export const SuccessfulCreateOrderComponent = () => {
+    const {t} = useTranslation()
+
     return (
         <MainLayout>
             <CenterMessage>
@@ -16,7 +19,7 @@ export const SuccessfulCreateOrderComponent = () => {
                         <p
                             className={styles.message}
                         >
-                            Ваш заказ успешно оформлен
+                            {t('success_order')}
                         </p>
                         <p
                             className={styles.add_message_section}
@@ -24,14 +27,14 @@ export const SuccessfulCreateOrderComponent = () => {
                             <div
                                 className={styles.add_message}
                             >
-                                Вернуться на
+                                {t('back_to')}
                             </div>
                             <LinkTo
                                 href={'/'}
                                 isNewPage={false}
                                 className={styles.link}
                             >
-                                главную страницу
+                                {t('main_page')}
                             </LinkTo>
                         </p>
                     </div>
