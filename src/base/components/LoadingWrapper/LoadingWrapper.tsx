@@ -7,7 +7,7 @@ export const LoadingWrapper: FC = () => {
 
     return (
         <section className={styles.body}>
-            <div>{t('loading')}</div>
+            <div>{t('loading')}...</div>
         </section>
     )
 }

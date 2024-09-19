@@ -19,7 +19,7 @@ export const FavouritesComponent: FC<IFavouritesComponent> = observer((
 
     if (!data || data.length === 0) return (
         <NullDataText
-            text={t('fav_no_data')}
+            text={`${t('fav_no_data')}...`}
             className={styles.no_data}
         />
     )

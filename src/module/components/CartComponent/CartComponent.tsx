@@ -32,7 +32,7 @@ export const CartComponent: FC<ICartComponent> = observer((
             >
                 {!data || data.length === 0 ?
                     <NullDataText
-                        text={t('cart_no_data')}
+                        text={`${t('cart_no_data')}...`}
                     />
                     :
                     <ul
@@ -82,7 +82,7 @@ export const CartComponent: FC<ICartComponent> = observer((
             </div>
             {isStartMakeOrder && data && data.length > 0 && (
                 <Popup
-                    title={'Оформление заказа'}
+                    title={t('make_order')}
                     handleCancelButtonClick={handlerMakeOrder}
                     isPopupOpen={isStartMakeOrder}
                 >

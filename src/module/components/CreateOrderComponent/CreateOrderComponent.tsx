@@ -4,6 +4,7 @@ import styles from './styles.module.scss'
 import {Button, Input} from "../../../base/components";
 import {postCreateOrderAction} from "../../actions";
 import {useNavigate} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 interface ICreateOrderComponent {
     totalPrice: number
@@ -15,6 +16,7 @@ export const CreateOrderComponent: FC<ICreateOrderComponent> = observer((
     }
 ) => {
     const navigation = useNavigate()
+    const {t} = useTranslation()
     const [input_address, setInput_address] = useState('')
     const [input_comment, setInput_comment] = useState('')
 
@@ -42,14 +44,14 @@ export const CreateOrderComponent: FC<ICreateOrderComponent> = observer((
             >
                 <Input
                     value={input_address}
-                    label={'Адрес доставки'}
-                    placeholder={'Введите адрес доставки...'}
+                    label={t('address')}
+                    placeholder={`${t('input_address')}...`}
                     onChange={handlerSetInputAddress}
                 />
                 <Input
                     value={input_comment}
-                    label={'Комментарий к доставке'}
-                    placeholder={'Введите комментарий...'}
+                    label={t('comment_to_order')}
+                    placeholder={`${t('input_comment')}...`}
                     onChange={handlerSetInputComment}
                 />
             </form>
@@ -59,7 +61,7 @@ export const CreateOrderComponent: FC<ICreateOrderComponent> = observer((
                 <p
                     className={styles.text}
                 >
-                    К оплате:
+                    {t('total')}:
                 </p>
                 <div
                     className={styles.price_text}
@@ -72,7 +74,7 @@ export const CreateOrderComponent: FC<ICreateOrderComponent> = observer((
                 onClick={handlerCreateOrder}
                 disabled={input_address == ''}
             >
-                Оплатить заказ
+                {t('order_pay')}
             </Button>
         </div>
     )
