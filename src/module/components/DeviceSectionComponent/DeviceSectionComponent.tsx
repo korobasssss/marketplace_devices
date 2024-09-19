@@ -19,7 +19,7 @@ export const DeviceSectionComponent: FC<IDeviceSectionComponent> = observer((
     }
 ) => {
     return (
-        <section
+        <div
             className={styles.device_main}
         >
             {title && (
@@ -34,6 +34,7 @@ export const DeviceSectionComponent: FC<IDeviceSectionComponent> = observer((
                 {data.map(oneDevice => {
                     return (
                         <OneDeviceComponent
+                            key={oneDevice.id}
                             id={oneDevice.id}
                             deviceImage={oneDevice.deviceImage}
                             name={oneDevice.name}
@@ -45,6 +46,6 @@ export const DeviceSectionComponent: FC<IDeviceSectionComponent> = observer((
                     )
                 })}
             </ul>
-        </section>
+        </div>
     )
 })

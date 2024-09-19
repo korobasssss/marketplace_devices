@@ -49,6 +49,7 @@ export const OneDeviceFullInformation: FC<IOneDeviceFullInformation> = (
                             return (
                                 <div
                                     className={styles.data_row}
+                                    key={index}
                                 >
                                     <header
                                         className={styles.description_title}

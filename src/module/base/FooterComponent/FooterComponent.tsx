@@ -28,7 +28,7 @@ export const FooterComponent : FC<IFooterComponent> = (
 
     const handleChangeLanguage = useCallback((lang: string) => {
         changeLanguage(lang);
-    }, []);
+    }, [changeLanguage]);
 
 
     return (
@@ -50,9 +50,10 @@ export const FooterComponent : FC<IFooterComponent> = (
                     <div
                         className={styles.links_section}
                     >
-                        {footerLinks.map(oneLink => {
+                        {footerLinks.map((oneLink, index) => {
                             return (
                                 <LinkTo
+                                    key={index}
                                     href={oneLink.link}
                                     isNewPage
                                 >
@@ -64,9 +65,10 @@ export const FooterComponent : FC<IFooterComponent> = (
                             className={styles.lang_section}
                         >
                             <LangIcon/>
-                            {languages.map(oneLang => {
+                            {languages.map((oneLang, index) => {
                                 return (
                                     <Button
+                                        key={index}
                                         theme={'blackOrOrange'}
                                         onClick={() => handleChangeLanguage(oneLang.shortName)}
                                         active={i18n.language === oneLang.shortName}
@@ -81,11 +83,12 @@ export const FooterComponent : FC<IFooterComponent> = (
                 <nav
                     className={styles.resources}
                 >
-                    {contacts.map(oneContact => {
+                    {contacts.map((oneContact, index) => {
                         return (
                             <LinkTo
                                 href={oneContact.link}
                                 isNewPage
+                                key={index}
                             >
                                 <img
                                     src={oneContact.title}

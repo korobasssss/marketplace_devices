@@ -25,9 +25,10 @@ export const MainComponent: FC<IMainComponent> = observer((
 
     return (
         <ul>
-            {data.map(section => {
+            {data.map((section) => {
                 return (
                     <DeviceSectionComponent
+                        key={section.id}
                         title={t(section.value)}
                         data={section.devices}
                     />

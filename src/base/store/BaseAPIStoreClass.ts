@@ -1,13 +1,11 @@
 import {action, computed, makeObservable, observable} from "mobx";
 import {ERequestStatus} from "../types";
 
-export class BaseApiStoreClass<T> {
-    public data: T | null = null;
+export class BaseApiStoreClass {
     public status: ERequestStatus = ERequestStatus.Pending;
 
     public constructor() {
         makeObservable(this, {
-            data: observable,
             status: observable,
             setLoading: action,
             setPending: action,
