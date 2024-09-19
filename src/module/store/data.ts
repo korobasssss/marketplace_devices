@@ -45,7 +45,7 @@ export const data: IDataOneSectionView[] = [
             {
                 id: 1,
                 deviceImage: '../../../public/1.svg',
-                name: 'Apple BYZ S852I',
+                name: 'Apple EarPods',
                 range: 4.5,
                 price: 2327,
                 salePrice: null,
@@ -79,7 +79,7 @@ export const data: IDataOneSectionView[] = [
             {
                 id: 2,
                 deviceImage: '../../../public/2.svg',
-                name: 'Apple BYZ S852I',
+                name: 'Apple EarPods 2',
                 range: 4.5,
                 price: 2327,
                 salePrice: 1999,
@@ -113,7 +113,7 @@ export const data: IDataOneSectionView[] = [
             {
                 id: 3,
                 deviceImage: '../../../public/3.svg',
-                name: 'Apple BYZ S852I',
+                name: 'Apple BYZ S3562',
                 range: 4.7,
                 price: 3527,
                 salePrice: null,
@@ -147,7 +147,7 @@ export const data: IDataOneSectionView[] = [
             {
                 id: 4,
                 deviceImage: '../../../public/4.svg',
-                name: 'Apple BYZ S852I',
+                name: 'Apple EarPods 3',
                 range: 4.5,
                 price: 3325,
                 salePrice: 2375,
@@ -181,7 +181,7 @@ export const data: IDataOneSectionView[] = [
             {
                 id: 5,
                 deviceImage: '../../../public/5.svg',
-                name: 'Apple BYZ S852I',
+                name: 'Apple EarPods 6',
                 range: 4.3,
                 price: 2563,
                 salePrice: null,
@@ -222,7 +222,7 @@ export const data: IDataOneSectionView[] = [
             {
                 id: 6,
                 deviceImage: '../../../public/6.svg',
-                name: 'Apple BYZ S852I',
+                name: 'Apple AirPods',
                 range: 4.7,
                 price: 9527,
                 salePrice: null,
@@ -256,7 +256,7 @@ export const data: IDataOneSectionView[] = [
             {
                 id: 7,
                 deviceImage: '../../../public/7.svg',
-                name: 'Apple BYZ S852I',
+                name: 'GERLAX GH-04',
                 range: 4.7,
                 price: 6527,
                 salePrice: null,
@@ -290,7 +290,7 @@ export const data: IDataOneSectionView[] = [
             {
                 id: 8,
                 deviceImage: '../../../public/8.svg',
-                name: 'Apple BYZ S852I',
+                name: 'BOROFONE BO4',
                 range: 4.7,
                 price: 7527,
                 salePrice: 6336,
