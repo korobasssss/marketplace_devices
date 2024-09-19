@@ -16,7 +16,7 @@ export const CartContainer = observer(() => {
 
     useEffect(() => {
         handlerGetCartData()
-    }, []);
+    }, [handlerGetCartData]);
 
     if (deviceStore.isLoading) return <LoadingWrapper/>
 

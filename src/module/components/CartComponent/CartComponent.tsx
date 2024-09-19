@@ -1,10 +1,11 @@
 import styles from './styles.module.scss'
-import {Button, NullDataText, WhiteWrapper} from "../../../base/components";
+import {Button, NullDataText, Popup, WhiteWrapper} from "../../../base/components";
 import {CartOneDeviceComponent} from "../";
 import {IDataOneDeviceCartView} from "../../interfaces";
-import {FC} from "react";
+import {FC, useCallback, useState} from "react";
 import {observer} from "mobx-react";
 import {useTranslation} from "react-i18next";
+import {CreateOrderComponent} from "../";
 
 interface ICartComponent {
     data: IDataOneDeviceCartView[] | null;
@@ -16,6 +17,11 @@ export const CartComponent: FC<ICartComponent> = observer((
     }
 ) => {
     const {t} = useTranslation()
+    const [isStartMakeOrder, setIsStartMakeOrder] = useState(false)
+
+    const handlerMakeOrder = useCallback(() => {
+        setIsStartMakeOrder(!isStartMakeOrder)
+    }, [isStartMakeOrder]);
 
     return (
         <div
@@ -66,13 +72,25 @@ export const CartComponent: FC<ICartComponent> = observer((
                         </div>
                     </div>
                     <Button
-                        disabled={!data}
+                        disabled={!data || data.length === 0}
                         theme={'submit'}
+                        onClick={handlerMakeOrder}
                     >
                         {t('order')}
                     </Button>
                 </WhiteWrapper>
             </div>
+            {isStartMakeOrder && data && data.length > 0 && (
+                <Popup
+                    title={'Оформление заказа'}
+                    handleCancelButtonClick={handlerMakeOrder}
+                    isPopupOpen={isStartMakeOrder}
+                >
+                    <CreateOrderComponent
+                        totalPrice={data.reduce((sum, item) => sum + item.price * item.count, 0)}
+                    />
+                </Popup>
+            )}
         </div>
     )
 })

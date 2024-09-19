@@ -1,0 +1,27 @@
+@import 'src/styles/variables/index';
+@import '../../../styles/mixins/index';
+
+.order_section {
+  display: grid;
+  row-gap: 20px;
+
+  .form {
+    display: grid;
+    row-gap: 15px;
+  }
+
+  .footer_section {
+    display: flex;
+    justify-content: end;
+    gap: 5px;
+
+    .text {
+      @include font-s-almost-bold;
+    }
+
+    .price_text {
+      @include font-s-bold;
+    }
+  }
+}
+

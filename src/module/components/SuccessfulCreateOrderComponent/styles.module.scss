@@ -1,0 +1,34 @@
+@import 'src/styles/variables/index';
+@import '../../../styles/mixins/index';
+
+.main_section {
+  width: max-content;
+  display: grid;
+  justify-items: center;
+  row-gap: 20px;
+
+  .message_section {
+    display: grid;
+    justify-items: center;
+    row-gap: 10px;
+
+    .message {
+      @include font-m-almost-bold;
+    }
+
+    .add_message_section {
+      display: grid;
+      grid-template-columns: max-content max-content;
+      column-gap: 5px;
+      @include font-s-regular;
+
+      .add_message {
+        width: max-content;
+      }
+
+      .link {
+        text-decoration: underline;
+      }
+    }
+  }
+}
