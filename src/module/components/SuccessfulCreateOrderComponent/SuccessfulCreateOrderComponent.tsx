@@ -21,7 +21,7 @@ export const SuccessfulCreateOrderComponent = () => {
                         >
                             {t('success_order')}
                         </p>
-                        <p
+                        <div
                             className={styles.add_message_section}
                         >
                             <div
@@ -36,7 +36,7 @@ export const SuccessfulCreateOrderComponent = () => {
                             >
                                 {t('main_page')}
                             </LinkTo>
-                        </p>
+                        </div>
                     </div>
 
                 </div>
