@@ -6,14 +6,11 @@ import {HeaderText} from "../HeaderText";
 import cx from "classnames";
 import {WhiteWrapper} from "../WhiteWrapper";
 import {ReactComponent as CloseIcon} from "../../../assets/icons/close.svg";
-import {Button} from "../Button";
 
 interface IPopup
     extends IWithClassName {
     title: string,
     handleCancelButtonClick: () => void
-    handleSubmitButtonClick?: () => void
-    buttonSubmitTitle?: string
     isPopupOpen: boolean,
     children: ReactNode
 }
@@ -23,8 +20,6 @@ export const Popup: FC<IPopup> = (
         title,
         handleCancelButtonClick,
         isPopupOpen,
-        handleSubmitButtonClick,
-        buttonSubmitTitle,
         children
 
     }
@@ -78,14 +73,6 @@ export const Popup: FC<IPopup> = (
                         </ButtonIcon>
                     </div>
                     {children}
-                    {handleSubmitButtonClick && (
-                        <Button
-                            theme={'submit'}
-                            onClick={handleSubmitButtonClick}
-                        >
-                            {buttonSubmitTitle}
-                        </Button>
-                    )}
                 </div>
             </WhiteWrapper>
         </div>

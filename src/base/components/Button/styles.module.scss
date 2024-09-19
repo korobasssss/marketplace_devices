@@ -4,6 +4,7 @@
 .Button {
   border: none;
   cursor: pointer;
+  transition: $TRANSITION;
 
   &_base {
     height: min-content;
@@ -23,7 +24,6 @@
   }
 
   &_blackOrOrange {
-    transition: $TRANSITION;
     height: min-content;
     width: max-content;
     color: $BUTTON_TEXT_BLACK;
@@ -31,12 +31,12 @@
     @include font-xs-almost-bold;
 
     &_active {
-      transition: $TRANSITION;
       color: $BUTTON_TEXT_ORANGE;
     }
   }
 
-  &_disabled {
+  &:disabled {
     cursor: not-allowed;
+    background-color: $BUTTON_BGC_DISABLED;
   }
 }
