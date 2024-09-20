@@ -1,4 +1,4 @@
-@import '../variables/index';
+@import '../variables/constants.scss';
 
 
 @mixin animation-opacity-exit() {
@@ -11,7 +11,7 @@
     }
   }
 
-  animation: opacity-exit $TRANSITION_DURATION;
+  animation: opacity-exit $ANIMATION_DURATION;
 }
 
 @mixin animation-opacity-enter() {
@@ -24,5 +24,5 @@
     }
   }
 
-  animation: opacity-enter $TRANSITION_DURATION;
+  animation: opacity-enter $ANIMATION_DURATION;
 }

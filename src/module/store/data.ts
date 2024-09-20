@@ -10,7 +10,7 @@ export const data: IDataOneSectionView[] = [
         devices: [
             {
                 id: 0,
-                deviceImage: '../../../public/0.svg',
+                deviceImage: '../../../0.svg',
                 name: 'Apple BYZ S852I',
                 range: 4.7,
                 price: 3527,
@@ -44,7 +44,7 @@ export const data: IDataOneSectionView[] = [
             },
             {
                 id: 1,
-                deviceImage: '../../../public/1.svg',
+                deviceImage: '../../../1.svg',
                 name: 'Apple EarPods',
                 range: 4.5,
                 price: 2327,
@@ -78,7 +78,7 @@ export const data: IDataOneSectionView[] = [
             },
             {
                 id: 2,
-                deviceImage: '../../../public/2.svg',
+                deviceImage: '../../../2.svg',
                 name: 'Apple EarPods 2',
                 range: 4.5,
                 price: 2327,
@@ -112,7 +112,7 @@ export const data: IDataOneSectionView[] = [
             },
             {
                 id: 3,
-                deviceImage: '../../../public/3.svg',
+                deviceImage: '../../../3.svg',
                 name: 'Apple BYZ S3562',
                 range: 4.7,
                 price: 3527,
@@ -146,7 +146,7 @@ export const data: IDataOneSectionView[] = [
             },
             {
                 id: 4,
-                deviceImage: '../../../public/4.svg',
+                deviceImage: '../../../4.svg',
                 name: 'Apple EarPods 3',
                 range: 4.5,
                 price: 3325,
@@ -180,7 +180,7 @@ export const data: IDataOneSectionView[] = [
             },
             {
                 id: 5,
-                deviceImage: '../../../public/5.svg',
+                deviceImage: '../../../5.svg',
                 name: 'Apple EarPods 6',
                 range: 4.3,
                 price: 2563,
@@ -221,7 +221,7 @@ export const data: IDataOneSectionView[] = [
         devices: [
             {
                 id: 6,
-                deviceImage: '../../../public/6.svg',
+                deviceImage: '../../../6.svg',
                 name: 'Apple AirPods',
                 range: 4.7,
                 price: 9527,
@@ -255,7 +255,7 @@ export const data: IDataOneSectionView[] = [
             },
             {
                 id: 7,
-                deviceImage: '../../../public/7.svg',
+                deviceImage: '../../../7.svg',
                 name: 'GERLAX GH-04',
                 range: 4.7,
                 price: 6527,
@@ -289,7 +289,7 @@ export const data: IDataOneSectionView[] = [
             },
             {
                 id: 8,
-                deviceImage: '../../../public/8.svg',
+                deviceImage: '../../../8.svg',
                 name: 'BOROFONE BO4',
                 range: 4.7,
                 price: 7527,
