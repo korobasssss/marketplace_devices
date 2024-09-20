@@ -28,7 +28,6 @@ export const HeaderComponent: FC<IHeaderWrapper> = observer((
 ) => {
     const navigation = useNavigate()
 
-
     const handlerTitleClick = useCallback(() => {
         navigation('/')
     }, [navigation]);

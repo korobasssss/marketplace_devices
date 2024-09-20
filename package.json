@@ -12,6 +12,7 @@
   "dependencies": {
     "@svgr/rollup": "^8.1.0",
     "classnames": "^2.5.1",
+    "google-translate-api-x": "^10.7.1",
     "i18next": "^23.15.1",
     "mobx": "^6.13.2",
     "mobx-react": "^9.1.1",

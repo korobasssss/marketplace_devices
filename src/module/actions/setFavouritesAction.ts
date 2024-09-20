@@ -1,11 +1,10 @@
-import {getDataFromStorage, findDevice, setDataToStorage} from "../utils";
-import {IDataOneDeviceView} from "../interfaces";
+import {findDevice, setDataToStorage} from "../utils";
 import {deviceStore} from "../store";
 
 export const setFavouritesAction = async (id: number) => {
     deviceStore.setLoading();
     try {
-        let data: IDataOneDeviceView[] = await getDataFromStorage('favourites');
+        let data = deviceStore.favouritesData;
         const oneDevice = findDevice(id);
         if (oneDevice) {
             if (data) {

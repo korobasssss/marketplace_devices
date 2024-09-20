@@ -1,11 +1,11 @@
-import {getDataFromStorage, findDevice, setDataToStorage} from "../utils";
+import {findDevice, setDataToStorage} from "../utils";
 import {IDataOneDeviceCartView} from "../interfaces";
 import {deviceStore} from "../store";
 
 export const setCartAction = async (id: number) => {
     deviceStore.setLoading();
     try {
-        let data: IDataOneDeviceCartView[] = await getDataFromStorage('cart');
+        let data = deviceStore.cartData;
         const oneDevice: IDataOneDeviceCartView = {...findDevice(id), count: 1};
         if (oneDevice) {
             if (data) {
