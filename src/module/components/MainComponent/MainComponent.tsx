@@ -1,6 +1,6 @@
 import {observer} from "mobx-react";
 import {DeviceSectionComponent} from "../";
-import {IDataOneSectionView} from "../../interfaces";
+import {IDataOneDeviceCartView, IDataOneDeviceView, IDataOneSectionView} from "../../interfaces";
 import {FC} from "react";
 import {NullDataText} from "../../../base/components";
 import {useTranslation} from "react-i18next";
@@ -8,11 +8,15 @@ import {useTranslation} from "react-i18next";
 
 interface IMainComponent {
     data: IDataOneSectionView[] | null
+    cartData: IDataOneDeviceCartView[] | null
+    favouritesData: IDataOneDeviceView[] | null
 }
 
 export const MainComponent: FC<IMainComponent> = observer((
     {
-        data
+        data,
+        cartData,
+        favouritesData
     }
 ) => {
     const {t} = useTranslation()
@@ -31,6 +35,8 @@ export const MainComponent: FC<IMainComponent> = observer((
                         key={section.id}
                         title={t(section.value)}
                         data={section.devices}
+                        cartData={cartData}
+                        favouritesData={favouritesData}
                     />
                 )
             })}

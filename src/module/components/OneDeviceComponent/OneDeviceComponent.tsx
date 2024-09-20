@@ -1,4 +1,4 @@
-import {FC, useCallback, useEffect, useState} from "react";
+import {FC, useCallback, useState} from "react";
 import {IWithClassName} from "../../../base/interfaces";
 import styles from './styles.module.scss'
 import {Button, ButtonIcon, Popup, WhiteWrapper} from "../../../base/components";
@@ -8,7 +8,6 @@ import {ReactComponent as NoLikeIcon} from "../../../assets/icons/no_like.svg";
 import {ReactComponent as InfoIcon} from "../../../assets/icons/info.svg";
 import cx from "classnames";
 import {observer} from "mobx-react";
-import {deviceStore} from "../../store";
 import {useNavigate} from "react-router-dom";
 import {removeFavouritesAction, setCartAction, setFavouritesAction} from "../../actions";
 import {useTranslation} from "react-i18next";
@@ -23,8 +22,9 @@ interface IOneDeviceComponent
     range: number,
     price: number,
     salePrice: number | null,
-    description: IDataDescriptionOneView[]
-
+    description: IDataDescriptionOneView[],
+    isLiked: boolean
+    isCart: boolean
 }
 
 export const OneDeviceComponent: FC<IOneDeviceComponent> = observer((
@@ -36,27 +36,15 @@ export const OneDeviceComponent: FC<IOneDeviceComponent> = observer((
         range,
         price,
         salePrice,
-        description
+        description,
+        isLiked,
+        isCart
 
     }
 ) => {
     const {t} = useTranslation();
     const navigate = useNavigate()
-    const [isLiked, setIsLiked] = useState(false)
-    const [isCart, setIsCart] = useState(false)
     const [isPopupOpen, setIsPopupOpen] = useState(false)
-
-    const {favouritesData, cartData} = deviceStore
-
-    useEffect(() => {
-        if (favouritesData) {
-            setIsLiked(favouritesData.some(device => device.id === id))
-        }
-        if (cartData) {
-            setIsCart(cartData.some(device => device.id === id))
-        }
-    }, [cartData, favouritesData, id]);
-
 
     const handlerClickFav = useCallback(() => {
         if (!isLiked) {

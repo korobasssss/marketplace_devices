@@ -8,7 +8,7 @@ import {useTranslation} from "react-i18next";
 
 export const FavouritesContainer: FC = observer(() => {
     const {t} = useTranslation()
-    const {favouritesData} = deviceStore
+    const {favouritesData, cartData} = deviceStore
 
     const handlerGetFavData = useCallback(() => {
         getFavouritesAction()
@@ -26,6 +26,8 @@ export const FavouritesContainer: FC = observer(() => {
         >
             <FavouritesComponent
                 data={favouritesData}
+                cartData={cartData}
+                favouritesData={favouritesData}
             />
         </MainLayout>
     )

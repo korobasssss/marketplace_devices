@@ -6,7 +6,7 @@ import {deviceStore} from "../../store";
 import {getAllDataAction} from "../../actions/";
 
 export const MainContainer: FC = observer(() => {
-    const {data} = deviceStore
+    const {data, cartData, favouritesData} = deviceStore
 
     const handlerGetData = useCallback(() => {
         getAllDataAction()
@@ -22,6 +22,8 @@ export const MainContainer: FC = observer(() => {
         <MainLayout>
             <MainComponent
                 data={data}
+                cartData={cartData}
+                favouritesData={favouritesData}
             />
         </MainLayout>
     )

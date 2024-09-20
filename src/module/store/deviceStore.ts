@@ -21,16 +21,16 @@ class DeviceStore extends BaseApiStoreClass{
     }
 
     public setData = (item: IDataOneSectionView[] | null): void => {
-        this.data = item
+        this.data = JSON.parse(JSON.stringify(item));
     }
 
     public setFavouritesData = (item: IDataOneDeviceView[] | null): void => {
-        this.favouritesData = item;
+        this.favouritesData = JSON.parse(JSON.stringify(item));
     }
 
     public setCartData = (item: IDataOneDeviceCartView[] | null): void => {
         if (item) {
-            this.cartData = item;
+            this.cartData = JSON.parse(JSON.stringify(item));
         } else {
             this.cartData = null
         }
