@@ -1,17 +1,18 @@
 import {createBrowserRouter} from "react-router-dom";
 import {MainPage, FavouritesPage, CartPage, SuccessfulCreateOrderPage} from "../../../pages";
+import {paths} from "./paths.ts";
 
 export const router = createBrowserRouter([
     {
-        path: '/',
+        path: paths.MAIN,
         element: <MainPage/>
     },
     {
-        path: '/favourites',
+        path: paths.FAVOURITES,
         element: <FavouritesPage/>
     },
     {
-        path: '/cart',
+        path: paths.CART,
         element: <CartPage/>
     },
     {

@@ -31,7 +31,6 @@ export const SuccessfulCreateOrderComponent = () => {
                             </div>
                             <LinkTo
                                 href={'/'}
-                                isNewPage={false}
                                 className={styles.link}
                             >
                                 {t('main_page')}

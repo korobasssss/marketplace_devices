@@ -8,6 +8,7 @@ import cx from "classnames";
 import {useNavigate} from "react-router-dom";
 import {observer} from "mobx-react";
 import {IDataOneDeviceCartView, IDataOneDeviceView} from "../../interfaces";
+import {paths} from "../../../base/routing/elements";
 
 interface IHeaderWrapper
     extends IWithClassName {
@@ -29,7 +30,7 @@ export const HeaderComponent: FC<IHeaderWrapper> = observer((
     const navigation = useNavigate()
 
     const handlerTitleClick = useCallback(() => {
-        navigation('/')
+        navigation(paths.MAIN)
     }, [navigation]);
     
     return (
@@ -51,8 +52,8 @@ export const HeaderComponent: FC<IHeaderWrapper> = observer((
                 {isFavoritesIcon && (
                     <LinkTo
                         className={styles.Link}
-                        href={'/favourites'}
-                        isNewPage={false}>
+                        href={paths.FAVOURITES}
+                    >
                         <FavIcon/>
                         <CounterNumber
                             className={styles.Link_Counter}
@@ -63,8 +64,7 @@ export const HeaderComponent: FC<IHeaderWrapper> = observer((
                 {isCartIcon && (
                     <LinkTo
                         className={styles.Link}
-                        href={'/cart'}
-                        isNewPage={false}
+                        href={paths.CART}
                     >
                         <CartIcon/>
                         <CounterNumber

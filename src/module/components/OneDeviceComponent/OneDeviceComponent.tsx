@@ -13,6 +13,7 @@ import {removeFavouritesAction, setCartAction, setFavouritesAction} from "../../
 import {useTranslation} from "react-i18next";
 import {OneDeviceFullInformation} from "../";
 import {IDataDescriptionOneView} from "../../interfaces";
+import { paths } from "../../../base/routing/elements";
 
 interface IOneDeviceComponent
     extends IWithClassName {
@@ -59,7 +60,7 @@ export const OneDeviceComponent: FC<IOneDeviceComponent> = observer((
         if (!isCart) {
             setCartAction(id)
         } else {
-            navigate('/cart')
+            navigate(paths.CART)
         }
     }, [id, isCart, navigate]);
 

@@ -8,15 +8,13 @@ interface ILink
     extends IWithClassName,
         LinkHTMLAttributes<HTMLLinkElement> {
     href: string,
-    isNewPage: boolean
 }
 
 export const LinkTo: FC<ILink> = (
     {
         className,
         children,
-        href,
-        isNewPage
+        href
     }
 ) => {
     return (
@@ -26,7 +24,6 @@ export const LinkTo: FC<ILink> = (
                 className,
                 styles.Link
             )}
-            target={isNewPage ? '_blank' : undefined}
         >
             {children}
         </Link>

@@ -55,7 +55,6 @@ export const FooterComponent : FC<IFooterComponent> = (
                                 <LinkTo
                                     key={index}
                                     href={oneLink.link}
-                                    isNewPage
                                 >
                                     {t(oneLink.value)}
                                 </LinkTo>
@@ -87,7 +86,6 @@ export const FooterComponent : FC<IFooterComponent> = (
                         return (
                             <LinkTo
                                 href={oneContact.link}
-                                isNewPage
                                 key={index}
                             >
                                 <img

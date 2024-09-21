@@ -1,18 +1,19 @@
 import { makeObservable, observable} from "mobx";
 import {ILinks, ILinksWithValue} from "../interfaces/ILinks.ts";
 import {ILanguage} from "../interfaces/ILanguage.ts";
+import { paths } from "../../base/routing/elements/paths.ts";
 
 
 class InformationStore {
     public footerLinks: ILinksWithValue[] = [
         {
             title: 'Избранное',
-            link: '/favourites',
+            link: paths.FAVOURITES,
             value: 'favourites'
         },
         {
             title: 'Корзина',
-            link: '/cart',
+            link: paths.CART,
             value: 'cart'
         },
         {
